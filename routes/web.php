@@ -1,14 +1,27 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/start', function () {
-    return view('start')->name('start');
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/');
+})->middleware('auth')->name('logout');
+
+Route::get('/start', [PageController::class, 'start'])->name('start');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/pet-found', [PageController::class, 'petFound'])->name('pet-found');
+    Route::get('/home', [PageController::class, 'home'])->name('home');
+    Route::get('/lost-pet', [PageController::class, 'lostPet'])->name('lost-pet');
+    Route::get('/adopt-pet', [PageController::class, 'adoptPet'])->name('adopt-pet');
+    Route::get('/give-up-for-adoption', [PageController::class, 'givePet'])->name('give-pet');
 });
 
 Route::get('/dashboard', function () {

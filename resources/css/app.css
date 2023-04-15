@@ -4,6 +4,7 @@
 
 body {
     max-width: 1280px;
+    margin: 0 auto;
 }
 
 .back-image {
@@ -15,4 +16,8 @@ body {
     max-width: 1280px;
     height: 100vw;
     max-height: 1280px;
+}
+
+#menu ul li:hover .submenu {
+    display: block;
 }
