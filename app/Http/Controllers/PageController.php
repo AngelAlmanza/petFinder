@@ -40,4 +40,9 @@ class PageController extends Controller
     {
         return view('post');
     }
+
+    public function chat()
+    {
+        return view('chat');
+    }
 }

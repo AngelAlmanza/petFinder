@@ -21,3 +21,11 @@ body {
 #menu ul li:hover .submenu {
     display: block;
 }
+
+.messages-container > div:nth-child(even) span {
+    margin-left: 8px;
+}
+
+.messages-container > div:nth-child(odd) span {
+    margin-right: 8px;
+}

@@ -23,6 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/lost-pet', [PageController::class, 'lostPet'])->name('lost-pet');
     Route::get('/adopt-pet', [PageController::class, 'adoptPet'])->name('adopt-pet');
     Route::get('/give-up-for-adoption', [PageController::class, 'givePet'])->name('give-pet');
+    Route::get('/chat', [PageController::class, 'chat'])->name('chat');
 });
 
 Route::get('/dashboard', function () {
