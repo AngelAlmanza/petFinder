@@ -10,7 +10,7 @@
 <body class="font-mono mx-auto">
     <x-header></x-header>
     <main class="bg-slate-100">
-        <h1 class="text-center mt-4 text-neutral-900 text-xl font-bold">¿Encontraste una mascota?</h1>
+        <h1 class="text-center text-neutral-900 text-xl font-bold">¿Encontraste una mascota?</h1>
         <h2 class="text-center mt-4 text-neutral-900 text-xl">Ayuda a devolverla</h2>
         <div class="p-4">
             <form action="" class="max-w-xl mx-auto my-4 p-4 bg-slate-50 rounded-lg shadow-sm">
