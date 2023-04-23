@@ -15,6 +15,7 @@ Route::post('/logout', function () {
 })->middleware('auth')->name('logout');
 
 Route::get('/start', [PageController::class, 'start'])->name('start');
+Route::get('/post', [PageController::class, 'post'])->name('post');
 
 Route::middleware('auth')->group(function () {
     Route::get('/pet-found', [PageController::class, 'petFound'])->name('pet-found');

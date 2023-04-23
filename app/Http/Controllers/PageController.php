@@ -35,4 +35,9 @@ class PageController extends Controller
     {
         return view('give-up-for-adoption');
     }
+
+    public function post()
+    {
+        return view('post');
+    }
 }
