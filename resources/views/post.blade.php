@@ -23,9 +23,12 @@
         <a href="#" class="mb-4 block text-red-700 hover:cursor-pointer hover:underline focus:underline">Reportar</a>
         <div class="mx-auto flex justify-center">
             <a href="{{ route('home') }}" class="text-slate-100 inline-flex items-center px-4 py-2 border border-transparent rounded-md font-bold text-base uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 bg-red-700">Cancelar</a>
-            <x-primary-button class="ml-4">
-                {{__('Chat')}}
-            </x-primary-button>
+            <form action="/chat" method="GET">
+                @csrf
+                <x-primary-button class="ml-4">
+                    {{__('Chat')}}
+                </x-primary-button>
+            </form>
         </div>
     </main>
     <x-footer />

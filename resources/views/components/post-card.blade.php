@@ -14,7 +14,10 @@
     <div class="w-full">
         <p class="text-base font-normal my-4 text-stone-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, veritatis praesentium assumenda nemo omnis eum pariatur vel dolor labore recusandae soluta cumque dignissimos aperiam consequatur quae. Culpa et numquam vero!</p>
     </div>
-    <x-primary-button class="w-26 text-center flex justify-center">
-        {{ __('Ver más') }}
-    </x-primary-button>
+    <form action="/post" method="GET">
+        @csrf
+        <x-primary-button class="w-26 text-center flex justify-center">
+            {{ __('Ver más') }}
+        </x-primary-button>
+    </form>
 </article>

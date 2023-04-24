@@ -5,17 +5,18 @@ use App\Http\Controllers\PageController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::post('/logout', function () {
     Auth::logout();
     return redirect('/');
 })->middleware('auth')->name('logout');
 
-Route::get('/start', [PageController::class, 'start'])->name('start');
+Route::get('/', [PageController::class, 'start'])->name('start');
 Route::get('/post', [PageController::class, 'post'])->name('post');
+Route::get('veterinary-help', [PageController::class, 'veterinaryHelp'])->name('veterinary-help');
 
 Route::middleware('auth')->group(function () {
     Route::get('/pet-found', [PageController::class, 'petFound'])->name('pet-found');

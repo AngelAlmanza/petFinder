@@ -26,7 +26,7 @@
                         <li class="mt-2 hover:bg-gray-400 p-2"><a href="{{ route('give-pet') }}">Dar en adopcion</a></li>
                     </ul>
                 </li>
-                <li><a href="#">Ayuda veterinaria</a></li>
+                <li><a href="{{ route('veterinary-help') }}">Ayuda veterinaria</a></li>
                 <li class="lg:hidden"><a href="{{ route('lost-pet') }}">Perdí mi mascota</a></li>
                 <li class="lg:hidden"><a href="{{ route('pet-found') }}">Encontré una mascota</a></li>
                 <li class="lg:hidden"><a href="{{ route('adopt-pet') }}">Adoptar mascota</a></li>

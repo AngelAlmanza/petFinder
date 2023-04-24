@@ -45,4 +45,9 @@ class PageController extends Controller
     {
         return view('chat');
     }
+
+    public function veterinaryHelp()
+    {
+        return view('veterinary-help');
+    }
 }
