@@ -25,7 +25,7 @@
                 <x-input-error :messages="$errors->get('description')" class="mt-2" />
                 <div class="mx-auto mt-4 w-full flex justify-evenly">
                     <x-primary-button class="bg-red-700">
-                        <a href="{{ route('start') }}" class="text-slate-100">Cancelar</a>
+                        <a href="{{ route('home') }}" class="text-slate-100">Cancelar</a>
                     </x-primary-button>
                     <x-primary-button>
                         {{ __('Publicar') }}

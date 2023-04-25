@@ -16,7 +16,7 @@
     </head>
     <body class="font-mono">
         <div class="min-h-screen bg-slate-100">
-            @include('layouts.navigation')
+            <x-header />
 
             <!-- Page Heading -->
             @if (isset($header))
