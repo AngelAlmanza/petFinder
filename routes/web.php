@@ -27,7 +27,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/chat', [PageController::class, 'chat'])->name('chat');
 });
 
-Route::get('/dashboard', function () {
+Route::get('admin/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 

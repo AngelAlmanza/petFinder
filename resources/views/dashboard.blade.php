@@ -1,17 +1,29 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+</head>
+<body class="font-base mx-auto flex">
+    <aside class="w-1/4 h-screen bg-slate-50">
+        <nav>
+            <ul>
+                <li>Almacenamiento</li>
+                <li>Vista general</li>
+                <li>Mascotas perdidas</li>
+                <li>Mascotas adoptadas</li>
+                <li>Reportes</li>
+            </ul>
+            <x-secondary-button>
+                {{__('Cerrar sesion')}}
+            </x-secondary-button>
+        </nav>
+    </aside>
+    <main class="bg-slate-100 w-3/4 h-screen">
+        <h1>Dashboard</h1>
+    </main>
+</body>
+</html>
