@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('species');
             $table->text('description');
             $table->string('race');
-            $table->integer('age');
-            $table->string('state');
+            $table->unsignedTinyInteger('age');
+            $table->enum('state', ['Perdido', 'En adopcion', 'Encontrado', 'Adoptado', 'No definido']);
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')->references('id')->on('users');
             $table->string('location');

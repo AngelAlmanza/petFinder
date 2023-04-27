@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('body');
             $table->string('reason_for_reporting');
             $table->timestamps();
+            $table->enum('state', ['Aprobado', 'Rechazado', 'En revisión']);
         });
     }
 

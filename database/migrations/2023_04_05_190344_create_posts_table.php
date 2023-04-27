@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('modified_on');
             $table->unsignedBigInteger('owner_id');
             $table->foreign('owner_id')->references('id')->on('users');
-            $table->string('type_publication');
+            $table->enum('type_publication', ['Adopcion', 'Mascota perdida', 'Mascota encontrada']);
             $table->unsignedBigInteger('pet_id');
             $table->foreign('pet_id')->references('id')->on('pets');
             $table->timestamps();
