@@ -2,12 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 
 Route::post('/logout', function () {
     Auth::logout();
@@ -15,7 +12,6 @@ Route::post('/logout', function () {
 })->middleware('auth')->name('logout');
 
 Route::get('/', [PageController::class, 'start'])->name('start');
-Route::get('/post', [PageController::class, 'post'])->name('post');
 Route::get('veterinary-help', [PageController::class, 'veterinaryHelp'])->name('veterinary-help');
 
 Route::middleware('auth')->group(function () {
@@ -26,6 +22,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/give-up-for-adoption', [PageController::class, 'givePet'])->name('give-pet');
     Route::get('/chat', [PageController::class, 'chat'])->name('chat');
 });
+
+Route::controller(PostController::class)->group(function () {
+    Route::get('/post/{id}', 'show')->name('post.show');
+})->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

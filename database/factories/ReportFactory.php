@@ -19,7 +19,8 @@ class ReportFactory extends Factory
         return [
             'user_id' => 1,
             'body' => fake()->text(1200),
-            'reason_for_reporting' => fake()->text(60)
+            'reason_for_reporting' => fake()->text(60),
+            'state' => 'Aprobado'
         ];
     }
 }

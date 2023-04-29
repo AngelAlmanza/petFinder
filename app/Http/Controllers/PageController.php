@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PageController extends Controller
 {
@@ -18,7 +19,8 @@ class PageController extends Controller
 
     public function home()
     {
-        return view('home');
+        $posts = DB::table('posts')->get();
+        return view('home', ['posts' => $posts]);
     }
 
     public function lostPet()
@@ -34,11 +36,6 @@ class PageController extends Controller
     public function givePet()
     {
         return view('give-up-for-adoption');
-    }
-
-    public function post()
-    {
-        return view('post');
     }
 
     public function chat()

@@ -23,7 +23,7 @@ class PostFactory extends Factory
             'posted_on' => now(),
             'modified_on' => now(),
             'owner_id' => 1,
-            'type_publication' => fake()->text(15),
+            'type_publication' => 'Adopcion',
             'pet_id' => 1,
         ];
     }

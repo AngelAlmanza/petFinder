@@ -13,12 +13,9 @@
         <figure class="p-4">
             <div class="w-auto max-w-md h-44 min-h-full sm:h-48 md:h-52 text-center flex items-center justify-center bg-gray-400 rounded-md hover:cursor-pointer mx-auto"></div>
         </figure>
-        <h2 class="font-bold text-xl text-neutral-900 text-start mb-4">Titulo de la publicacion</h2>
-        <p class="text-base font-normal text-stone-800 mb-4">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio deleniti facilis quam dolorum, veniam magnam non possimus beatae incidunt laboriosam eius libero error? Nemo nam maxime repellat atque dolor pariatur?
-            Facilis velit labore ipsa quaerat suscipit. Nisi corporis obcaecati mollitia, iusto voluptatum sed asperiores dolor voluptate maxime repellendus praesentium laboriosam quod error eligendi dolorum enim soluta natus, voluptas necessitatibus eos.
-        </p>
-        <p class="text-xs font-normal text-stone-800 mb-4">Fecha de publicación: 20/Ago/2022</p>
+        <h2 class="font-bold text-xl text-neutral-900 text-start mb-4">{{ $post->title }}</h2>
+        <p class="text-base font-normal text-stone-800 mb-4">{{ $post->body }}</p>
+        <p class="text-xs font-normal text-stone-800 mb-4">Fecha de publicación: {{ $post->created_at->format('d/m/Y') }}</p>
         <p class="text-sm font-light text-gray-400 mb-4"><i>Autor: Filomeno Pancrasio</i></p>
         <a href="#" class="mb-4 block text-red-700 hover:cursor-pointer hover:underline focus:underline">Reportar</a>
         <div class="mx-auto flex justify-center">
