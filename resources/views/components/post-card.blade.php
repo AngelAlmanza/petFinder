@@ -1,5 +1,4 @@
-<article class="w-11/12 max-w-xl h-full mx-auto p-4 flex items-end flex-col justify-around shadow-md rounded-lg">
-    <!-- Live as if you were to die tomorrow. Learn as if you were to live forever. - Mahatma Gandhi -->
+<article {{ $attributes->merge(['class' => 'w-11/12 max-w-xl h-full mx-auto p-4 flex items-end flex-col justify-around shadow-md rounded-lg']) }}>
     <div class="flex justify-between w-full">
         <div class="flex">
             <span class="mr-4">

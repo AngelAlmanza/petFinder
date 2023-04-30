@@ -12,15 +12,26 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::all();
+        return view('home', ['posts' => $posts]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create($action)
     {
-        //
+        $h1 = match($action) {
+            'give-up-for-adoption' => 'Dar en adopción',
+            'lost-pet' => '¿Perdiste tu mascota?',
+            'pet-found' => '¿Encontraste una mascota?'
+        };
+        $h2 = match($action) {
+            'give-up-for-adoption' => 'Proporciona los siguientes datos por favor',
+            'lost-pet' => 'Pide ayuda',
+            'pet-found' => 'Ayuda a devolverla'
+        };
+        return view('create-post', ['action' => $action, 'h1' => $h1, 'h2' => $h2]);
     }
 
     /**

@@ -15,16 +15,14 @@ Route::get('/', [PageController::class, 'start'])->name('start');
 Route::get('veterinary-help', [PageController::class, 'veterinaryHelp'])->name('veterinary-help');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/pet-found', [PageController::class, 'petFound'])->name('pet-found');
-    Route::get('/home', [PageController::class, 'home'])->name('home');
-    Route::get('/lost-pet', [PageController::class, 'lostPet'])->name('lost-pet');
     Route::get('/adopt-pet', [PageController::class, 'adoptPet'])->name('adopt-pet');
-    Route::get('/give-up-for-adoption', [PageController::class, 'givePet'])->name('give-pet');
     Route::get('/chat', [PageController::class, 'chat'])->name('chat');
 });
 
 Route::controller(PostController::class)->group(function () {
+    Route::get('/home', 'index')->name('post.index');
     Route::get('/post/{id}', 'show')->name('post.show');
+    Route::get('/create-post/{action}', 'create')->name('post.create');
 })->middleware('auth');
 
 Route::get('/dashboard', function () {
