@@ -22,7 +22,7 @@ class PostFactory extends Factory
             'url_image' => fake()->text(20),
             'posted_on' => now(),
             'modified_on' => now(),
-            'owner_id' => 1,
+            'user_id' => 1,
             'type_publication' => 'Adopcion',
             'pet_id' => 1,
         ];

@@ -10,12 +10,17 @@
     <h1 class="text-center text-neutral-900 text-xl font-bold">{{ $h1 }}</h1>
     <h2 class="text-center mt-4 text-neutral-900 text-xl">{{ $h2 }}</h2>
     <div class="p-4">
-        <form action="" class="max-w-xl mx-auto my-4 p-4 bg-slate-50 rounded-lg shadow-sm">
+        <form action="{{ route('post.store') }}" class="max-w-xl mx-auto my-4 p-4 bg-slate-50 rounded-lg shadow-sm" method="POST">
+            @csrf
             <x-input-image />
             @if ($action == 'give-up-for-adoption')
                 <x-input-label for="title" class="mt-4 mb-2" :value="__('Titulo de publicación')" />
                 <x-text-input id="title" class="w-full" type="text" name="title" required autofocus />
                 <x-input-error :messages="$errors->get('title')" class="mt-2" />
+            @elseif ($action == 'lost-pet')
+                    <x-input-label for="animal" class="mt-4 mb-2" :value="__('Animal')" />
+                    <x-text-input id="animal" class="w-full" type="text" name="animal" required autofocus />
+                    <x-input-error :messages="$errors->get('animal')" class="mt-2" />
             @else
                 <x-input-label for="name" class="mt-4 mb-2" :value="__('Nombre')" />
                 <x-text-input id="name" class="w-full" type="text" name="name" required autofocus />

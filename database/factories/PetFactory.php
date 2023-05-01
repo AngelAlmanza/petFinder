@@ -23,7 +23,7 @@ class PetFactory extends Factory
             'race' => fake()->text(15),
             'age' => random_int(0, 20),
             'state' => 'En adopcion',
-            'owner_id' => 1,
+            'user_id' => 1,
             'location' => fake()->text(60),
             'url_image' => fake()->text(20)
         ];

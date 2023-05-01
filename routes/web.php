@@ -23,6 +23,7 @@ Route::controller(PostController::class)->group(function () {
     Route::get('/home', 'index')->name('post.index');
     Route::get('/post/{id}', 'show')->name('post.show');
     Route::get('/create-post/{action}', 'create')->name('post.create');
+    Route::post('create-post', 'store')->name('post.store');
 })->middleware('auth');
 
 Route::get('/dashboard', function () {

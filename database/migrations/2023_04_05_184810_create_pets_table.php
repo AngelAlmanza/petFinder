@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('race');
             $table->unsignedTinyInteger('age');
             $table->enum('state', ['Perdido', 'En adopcion', 'Encontrado', 'Adoptado', 'No definido']);
-            $table->unsignedBigInteger('owner_id');
-            $table->foreign('owner_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('location');
             $table->string('url_image');
             $table->timestamps();
