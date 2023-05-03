@@ -31,3 +31,10 @@ try {
 } catch (error) {
     console.error(error);
 }
+
+try {
+    const input = document.getElementById('url');
+    input.value = window.location.pathname.substring(13);
+} catch (error) {
+    console.error(error);
+}

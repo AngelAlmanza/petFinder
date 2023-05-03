@@ -19,12 +19,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/chat', [PageController::class, 'chat'])->name('chat');
 });
 
-Route::controller(PostController::class)->group(function () {
-    Route::get('/home', 'index')->name('post.index');
-    Route::get('/post/{id}', 'show')->name('post.show');
-    Route::get('/create-post/{action}', 'create')->name('post.create');
-    Route::post('create-post', 'store')->name('post.store');
-})->middleware('auth');
+Route::middleware('auth')->group(function () {
+    Route::get('/home', [PostController::class, 'index'])->name('post.index');
+    Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
+    Route::get('/create-post/{action}', [PostController::class, 'create'])->name('post.create');
+    Route::post('create-post', [PostController::class, 'store'])->name('post.store');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');

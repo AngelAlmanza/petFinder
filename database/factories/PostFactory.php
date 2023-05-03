@@ -20,11 +20,11 @@ class PostFactory extends Factory
             'title' => fake()->text(20),
             'body' => fake()->text(),
             'url_image' => fake()->text(20),
-            'posted_on' => now(),
-            'modified_on' => now(),
             'user_id' => 1,
-            'type_publication' => 'Adopcion',
+            'type_publication' => 'Adopción',
             'pet_id' => 1,
+            'created_at' => now(),
+            'updated_at' => now()
         ];
     }
 }
