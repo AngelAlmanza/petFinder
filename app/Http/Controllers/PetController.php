@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pet;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class PetController extends Controller
@@ -12,7 +13,9 @@ class PetController extends Controller
      */
     public function index()
     {
-        //
+        $pets = Pet::all();
+        $posts = Post::all();
+        return view('adopt-pet', ['pets' => $pets, 'posts' => $posts]);
     }
 
     /**

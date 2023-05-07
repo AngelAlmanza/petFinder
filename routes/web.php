@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PetController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,6 @@ Route::get('/', [PageController::class, 'start'])->name('start');
 Route::get('veterinary-help', [PageController::class, 'veterinaryHelp'])->name('veterinary-help');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/adopt-pet', [PageController::class, 'adoptPet'])->name('adopt-pet');
     Route::get('/chat', [PageController::class, 'chat'])->name('chat');
 });
 
@@ -24,6 +24,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/post/{id}', [PostController::class, 'show'])->name('post.show');
     Route::get('/create-post/{action}', [PostController::class, 'create'])->name('post.create');
     Route::post('create-post', [PostController::class, 'store'])->name('post.store');
+    Route::get('/adopt-pet', [PetController::class, 'index'])->name('adopt-pet');
 });
 
 Route::get('/dashboard', function () {
