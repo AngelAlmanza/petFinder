@@ -23,7 +23,8 @@ class StorePost extends FormRequest
     {
         $rules = [
             'breed' => 'required|string|max:20',
-            'description' => 'required|string|min:50'
+            'description' => 'required|string|min:50',
+            'image' => 'required|image|max:2048'
         ];
 
         if ($this->input('title'))
@@ -77,7 +78,9 @@ class StorePost extends FormRequest
     public function messages()
     {
         $messages = [
-            'description.min' => 'Por favor se mas especifico o agrega mas descripcion para ayudarte de la mejor manera posible'
+            'description.min' => 'Por favor se mas especifico o agrega mas descripcion para ayudarte de la mejor manera posible',
+            'image.required' => 'Por favor sube una imágen de la mascota',
+            'image.max' => 'La imagen que deseas subir es demasiado grande'
         ];
         return $messages;
     }

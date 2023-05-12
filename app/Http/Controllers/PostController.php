@@ -7,6 +7,7 @@ use App\Models\Pet;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -42,14 +43,17 @@ class PostController extends Controller
      */
     public function store(StorePost $request)
     {
+        $imagenes = $request->file('image')->store('public/petsImages');
+        $urlImg = Storage::url($imagenes);
+
         $post = new Post();
         $pet = new Pet();
 
-        $post->url_image = 'image';
+        $post->url_image = $urlImg;
         $post->user_id = Auth::id();
         $post->body = $request->input('description');
 
-        $pet->url_image = 'image';
+        $pet->url_image = $urlImg;
         $pet->user_id = Auth::id();
         $pet->race = $request->input('breed');
         $pet->description = $request->input('description');
@@ -96,7 +100,8 @@ class PostController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        return view('post', ['post' => $post]);
+        $pet = Pet::firstWhere('id', $post->pet_id);
+        return view('post', ['post' => $post, 'pet' => $pet]);
     }
 
     /**

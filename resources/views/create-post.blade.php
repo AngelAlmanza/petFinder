@@ -3,6 +3,8 @@
 @section('title', 'Perdi mi mascota')
 @elseif ($action == 'give-up-for-adoption')
 @section('title', 'Dar en adopción')
+@elseif($action == 'pet-found')
+@section('title', 'Mascota encontrada')
 @else
 @section('title', 'Adoptar mascota')
 @endif
@@ -10,9 +12,10 @@
     <h1 class="text-center text-neutral-900 text-xl font-bold">{{ $h1 }}</h1>
     <h2 class="text-center mt-4 text-neutral-900 text-xl">{{ $h2 }}</h2>
     <div class="p-4">
-        <form id="form-post" action="{{ route('post.store') }}" class="max-w-xl mx-auto my-4 p-4 bg-slate-50 rounded-lg shadow-sm" method="POST">
+        <form id="form-post" action="{{ route('post.store') }}" class="max-w-xl mx-auto my-4 p-4 bg-slate-50 rounded-lg shadow-sm" method="POST" enctype="multipart/form-data">
             @csrf
             <x-input-image />
+            <x-input-error :messages="$errors->get('image')" class="mt-2" />
             <x-text-input id="url" class="w-full hidden" type="text" name="url" />
             @if ($action == 'give-up-for-adoption')
                 <x-input-label for="title" class="mt-4 mb-2" :value="__('Titulo de publicación')" />

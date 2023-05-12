@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReportController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,6 +26,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/create-post/{action}', [PostController::class, 'create'])->name('post.create');
     Route::post('create-post', [PostController::class, 'store'])->name('post.store');
     Route::get('/adopt-pet', [PetController::class, 'index'])->name('adopt-pet');
+    Route::get('/report/{postId}', [ReportController::class, 'create'])->name('report.create');
 });
 
 Route::get('/dashboard', function () {
