@@ -27,6 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::post('create-post', [PostController::class, 'store'])->name('post.store');
     Route::get('/adopt-pet', [PetController::class, 'index'])->name('adopt-pet');
     Route::get('/report/{postId}', [ReportController::class, 'create'])->name('report.create');
+    Route::post('/report', [ReportController::class, 'store'])->name('report.store');
+    Route::get('/reporte/{id}', [ReportController::class, 'show'])->name('report.show');
 });
 
 Route::get('/dashboard', function () {

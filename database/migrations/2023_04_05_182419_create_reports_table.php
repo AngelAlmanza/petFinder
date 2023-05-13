@@ -16,9 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->text('body');
-            $table->string('reason_for_reporting');
+            $table->string('reason');
+            $table->string('url_image');
             $table->timestamps();
-            $table->enum('state', ['Aprobado', 'Rechazado', 'En revisión']);
+            $table->enum('state', ['Aprobado', 'Rechazado', 'En revisión'])->default('En revisión');
         });
     }
 
