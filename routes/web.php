@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/reporte/{id}', [ReportController::class, 'show'])->name('report.show');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/admin/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
