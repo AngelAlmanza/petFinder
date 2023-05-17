@@ -4,7 +4,7 @@
     <section>
         <h1 class="text-center text-neutral-900 text-xl font-bold">{{ $post->title }}</h1>
         <div class="p-4">
-            <form action="{{ route('post.update', $post) }}" method="POST" class="max-w-xl mx-auto my-4 p-4 bg-slate-50 rounded-lg shadow-sm">
+            <form action="{{ route('post.update', $post) }}" method="POST" class="max-w-xl mx-auto mt-4 p-4 bg-slate-50 rounded-lg shadow-sm">
                 @csrf
                 @method('PUT')
                 @if ($post->type_publication == 'Adopción')
@@ -41,6 +41,14 @@
                     <a href="{{ route('post.index') }}" class="text-slate-100 inline-flex items-center px-4 py-2 border border-transparent rounded-md font-bold text-base uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 bg-red-700">Volver</a>
                     <x-primary-button>{{ __('Guardar') }}</x-primary-button>
                 </div>
+            </form>
+        </div>
+        <div class="p-4">
+            <form action="{{ route('post.destroy', $post) }}" method="POST" class="max-w-xl mx-auto p-4 bg-slate-50 rounded-lg shadow-sm">
+                @csrf
+                @method('delete')
+                <h3 class="text-stone-800 text-base font-normal mb-4">Eliminar publicación</h3>
+                <x-danger-button>{{ __('Eliminar Publicación') }}</x-danger-button>
             </form>
         </div>
     </section>
