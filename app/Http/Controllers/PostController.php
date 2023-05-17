@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePost;
+use App\Http\Requests\UpdatePost;
 use App\Models\Pet;
 use App\Models\Post;
 use Illuminate\Http\Request;
@@ -116,7 +117,7 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Post $post)
+    public function update(UpdatePost $request, Post $post)
     {
         $pet = Pet::firstWhere('id', $post->pet_id);
 

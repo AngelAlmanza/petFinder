@@ -23,16 +23,6 @@ try {
 }
 
 try {
-    const containerMessages = document.getElementById('messagesContainer');
-    const inputMessage = document.getElementById('messagesInput');
-    let headerHeight = document.getElementsByTagName('header')[0].offsetHeight;
-    let inputMessageHeight = inputMessage.offsetHeight;
-    containerMessages.style.height = `${window.innerHeight - headerHeight - inputMessageHeight}px`;
-} catch (error) {
-    console.error(error);
-}
-
-try {
     const input = document.getElementById('url');
     input.value = window.location.pathname.substring(13);
 } catch (error) {
