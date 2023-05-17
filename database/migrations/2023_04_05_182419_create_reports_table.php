@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->text('body');
             $table->string('reason');
-            $table->string('url_image');
+            $table->string('url_image')->default('');
             $table->timestamps();
             $table->enum('state', ['Aprobado', 'Rechazado', 'En revisión'])->default('En revisión');
         });
