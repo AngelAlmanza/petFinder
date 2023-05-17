@@ -31,7 +31,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/adopt-pet', [PetController::class, 'index'])->name('adopt-pet');
     Route::get('/report/{postId}', [ReportController::class, 'create'])->name('report.create');
     Route::post('/report', [ReportController::class, 'store'])->name('report.store');
-    Route::get('/reporte/{id}', [ReportController::class, 'show'])->name('report.show');
+    Route::get('/show-report/{report}', [ReportController::class, 'show'])->name('report.show');
+    Route::get('/edit-report/{report}', [ReportController::class, 'edit'])->name('report.edit');
 });
 
 Route::get('/admin/dashboard', function () {

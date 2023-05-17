@@ -33,9 +33,14 @@ class ReportController extends Controller
      */
     public function store(StoreReport $request)
     {
+        $imagen = '';
+        $urlImg = '';
         $report = new Report();
-        $imagen = $request->file('image')->store('public/reportImages');
-        $urlImg = Storage::url($imagen);
+        if (!$request->file('image') == null)
+        {
+            $imagen = $request->file('image')->store('public/reportImages');
+            $urlImg = Storage::url($imagen);
+        }
         $report->user_id = Auth::id();
         $report->body = $request->input('description');
         $report->reason = $request->input('reason');
@@ -47,9 +52,8 @@ class ReportController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Report $report)
     {
-        $report = Report::find($id);
         return view('report', ['report' => $report]);
     }
 
@@ -58,7 +62,7 @@ class ReportController extends Controller
      */
     public function edit(Report $report)
     {
-        //
+        return $report;
     }
 
     /**

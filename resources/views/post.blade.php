@@ -2,7 +2,7 @@
 @section('title', "$post->title")
 @section('content')
     <figure class="p-4">
-        <img src="{{ $post->url_image }}" alt="Foto de la mascota" class="w-auto max-w-md h-44 min-h-full sm:h-48 md:h-52 rounded-md mx-auto">
+        <img src="{{ $post->url_image }}" alt="Foto de la mascota" class="md:w-auto w-72 md:max-w-md h-44 min-h-full sm:h-48 md:h-52 rounded-md mx-auto">
     </figure>
     <div class="w-4/5 mx-auto">
         <h2 class="font-bold text-xl text-neutral-900 text-start mb-4">{{ $post->title }}</h2>
