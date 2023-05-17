@@ -66,7 +66,6 @@ class PostController extends Controller
             $pet->species = $request->input('animal');
             $pet->state = 'Perdido';
             $pet->location = $request->input('placeLost');
-            $pet->save();
         }
 
         if ($request->input('url') === 'pet-found')
@@ -109,7 +108,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        // return $post;
+        $pet = Pet::firstWhere('id', $post->pet_id);
+        return view('edit-post', ['post' => $post, 'pet' => $pet]);
     }
 
     /**
@@ -117,7 +118,33 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $pet = Pet::firstWhere('id', $post->pet_id);
+
+        if ($post->type_publication == 'Adopción')
+        {
+            $post->title = $request->input('title');
+            $pet->location = $request->input('placeAdopt');
+        }
+        if ($post->type_publication == 'Mascota perdida')
+        {
+            $post->title = $request->input('animal');
+            $pet->name = $request->input('petName');
+            $pet->species = $request->input('animal');
+            $pet->location = $request->input('placeLost');
+        }
+        if ($post->type_publication == 'Mascota encontrada')
+        {
+            $post->title = $request->input('name');
+        }
+
+        $pet->race = $request->input('breed');
+        $pet->description = $request->input('description');
+        $post->body = $request->input('description');
+
+        $pet->save();
+        $post->save();
+
+        return redirect()->route('post.show', $post);
     }
 
     /**
