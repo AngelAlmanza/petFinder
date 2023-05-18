@@ -42,7 +42,7 @@
                 </form>
             </li>
             <li>
-                <form action="{{ route('dashboard.petsFounded') }}" method="GET">
+                <form action="{{ route('dashboard.reports') }}" method="GET">
                     @csrf
                     <button type="submit" class="rounded-md p-4 m-1 w-full text-neutral-900 font-bold shadow-md hover:bg-emerald-400 hover:text-slate-50">
                         Reportes
