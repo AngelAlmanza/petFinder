@@ -19,12 +19,14 @@ class DashboardController extends Controller
     public function lostPetsView()
     {
         $pets = DB::table('pets')->where('state', '=', 'Perdido')->get();
+        $pets = addslashes(json_encode($pets));
         return view('dashboard.lost-pets', ['pets' => $pets]);
     }
 
     public function petsFoundedView()
     {
         $pets = DB::table('pets')->where('state', '=', 'Encontrado')->get();
+        $pets = addslashes(json_encode($pets));
         return view('dashboard.founded-pets', ['pets' => $pets]);
     }
 
@@ -32,7 +34,6 @@ class DashboardController extends Controller
     {
         $pets = DB::table('pets')->where('state', '=', 'Adoptado')->get();
         $pets = addslashes(json_encode($pets));
-        // return $pets;
-        return view('dashboard.adopted-pets')->with('pets', $pets);
+        return view('dashboard.adopted-pets', ['pets' => $pets]);
     }
 }
