@@ -9,8 +9,9 @@
 </head>
 <body class="font-mono mx-auto flex w-full">
     <x-aside-dashboard></x-aside-dashboard>
-        <main class="bg-slate-100 pt-4 w-8/12">
-            @yield('content')
-        </main>
+    <main class="bg-slate-100 pt-4 w-8/12">
+        @yield('content')
+    </main>
+    @yield('script')
 </body>
 </html>

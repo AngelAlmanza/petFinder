@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -18,16 +18,21 @@ class DashboardController extends Controller
 
     public function lostPetsView()
     {
-        return view('dashboard.lost-pets');
+        $pets = DB::table('pets')->where('state', '=', 'Perdido')->get();
+        return view('dashboard.lost-pets', ['pets' => $pets]);
     }
 
     public function petsFoundedView()
     {
-        return view('dashboard.founded-pets');
+        $pets = DB::table('pets')->where('state', '=', 'Encontrado')->get();
+        return view('dashboard.founded-pets', ['pets' => $pets]);
     }
 
     public function adoptedPetsView()
     {
-        return view('dashboard.adopted-pets');
+        $pets = DB::table('pets')->where('state', '=', 'Adoptado')->get();
+        $pets = addslashes(json_encode($pets));
+        // return $pets;
+        return view('dashboard.adopted-pets')->with('pets', $pets);
     }
 }
