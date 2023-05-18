@@ -6,7 +6,6 @@ use App\Http\Requests\StorePost;
 use App\Http\Requests\UpdatePost;
 use App\Models\Pet;
 use App\Models\Post;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
