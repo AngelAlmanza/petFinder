@@ -1,5 +1,5 @@
 @extends('layouts.dashboard')
-@section('title', 'VistaGeneral')
+@section('title', 'Vista General')
 @section('content')
-    <h1>System Working</h1>
+    <h1>Vista general</h1>
 @endsection
