@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -13,7 +15,19 @@ class DashboardController extends Controller
 
     public function storageView()
     {
-        return view('dashboard.storage');
+        $totalSize = 0;
+        $routes = ['public/petsImages', 'public/reportImages'];
+        foreach ($routes as $route)
+        {
+            $files = Storage::disk($route)->allFiles();
+            foreach ($files as $file)
+            {
+                $totalSize += Storage::disk($route)->size($file);
+            }
+        }
+        $totalSize = round($totalSize / 1024 / 1024, 2);
+
+        return view('dashboard.storage', ['totalSize' => $totalSize]);
     }
 
     public function lostPetsView()

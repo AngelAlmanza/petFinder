@@ -56,6 +56,20 @@ return [
             'throw' => false,
         ],
 
+        'public/petsImages' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/petsImages'),
+            'url' => env('APP_URL').'/storage/app/public/petsImages',
+            'visibility' => 'public'
+        ],
+
+        'public/reportImages' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/reportImages'),
+            'url' => env('APP_URL').'/storage/app/public/reportImages',
+            'visibility' => 'public'
+        ],
+
     ],
 
     /*
