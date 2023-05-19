@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\PetCenterController;
 use App\Http\Controllers\PetController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ReportController;
@@ -15,7 +16,12 @@ Route::post('/logout', function () {
 })->middleware('auth')->name('logout');
 
 Route::get('/', [PageController::class, 'start'])->name('start');
-Route::get('veterinary-help', [PageController::class, 'veterinaryHelp'])->name('veterinary-help');
+
+Route::controller(PetCenterController::class)->group(function () {
+    Route::get('/create/pet-center', 'create')->name('petCenter.create');
+    Route::get('/veterinary-help', 'index')->name('petCenter.index');
+    Route::post('/create/pet-center', 'store')->name('petCenter.store');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/chat', [PageController::class, 'chat'])->name('chat');

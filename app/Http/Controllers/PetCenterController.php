@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePetCenter;
 use App\Models\PetCenter;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class PetCenterController extends Controller
      */
     public function index()
     {
-        //
+        return view('veterinary-help');
     }
 
     /**
@@ -20,15 +21,25 @@ class PetCenterController extends Controller
      */
     public function create()
     {
-        //
+        return view('petCenters.create-pet-center');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StorePetCenter $request)
     {
-        //
+        $petCenter = new PetCenter();
+        $petCenter->name = $request->input('name');
+        $petCenter->location = $request->input('location');
+        $petCenter->schedule = $request->input('schedule');
+        $petCenter->type = false;
+        if ($request->has('type'))
+        {
+            $petCenter->type = true;
+        }
+        $petCenter->save();
+        return redirect()->route('start');
     }
 
     /**
