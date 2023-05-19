@@ -26,6 +26,11 @@
         <p class="text-base font-bold text-stone-800 mb-4">Categoria: {{ $post->type_publication }}</p>
         <p class="text-sm font-light text-gray-400 mb-4"><i>Autor: {{ $post->user->name }}</i></p>
         <a href="{{ route('report.create', $post->id) }}" class="mb-4 block text-red-700 hover:cursor-pointer hover:underline focus:underline">Reportar</a>
+        <form action="{{ route('post.destroy', $post) }}" method="POST">
+            @csrf
+            @method('delete')
+            <button type="submit" class="text-base font-normal text-red-800 mb-4">Eliminar publicación</button>
+        </form>
         <div class="mx-auto pb-4 flex justify-center">
             <a href="{{ route('post.index') }}" class="text-slate-100 inline-flex items-center px-4 py-2 border border-transparent rounded-md font-bold text-base uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 bg-red-700">Volver</a>
             <form action="{{ route('post.edit', $post) }}" method="GET">

@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/report', [ReportController::class, 'store'])->name('report.store');
     Route::get('/show-report/{report}', [ReportController::class, 'show'])->name('report.show');
     Route::get('/edit-report/{report}', [ReportController::class, 'edit'])->name('report.edit');
+    Route::put('/edit-report/{report}/update', [ReportController::class, 'update'])->name('report.update');
+    Route::delete('/delete-report/{report}', [ReportController::class, 'destroy'])->name('report.destroy');
 });
 
 Route::middleware('auth')->group(function () {

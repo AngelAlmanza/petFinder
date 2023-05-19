@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreReport;
+use App\Http\Requests\UpdateReport;
 use App\Models\Post;
 use App\Models\Report;
 use Illuminate\Http\Request;
@@ -62,15 +63,26 @@ class ReportController extends Controller
      */
     public function edit(Report $report)
     {
-        return $report;
+        return view('edit-report', ['report' => $report]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Report $report)
+    public function update(UpdateReport $request, Report $report)
     {
-        //
+        $report->reason = $request->input('reason');
+        $report->body = $request->input('description');
+        $imagen = '';
+        $urlImg = '';
+        if (!$request->file('image') == null)
+        {
+            $imagen = $request->file('image')->store('public/reportImages');
+            $urlImg = Storage::url($imagen);
+        }
+        $report->url_image = $urlImg;
+        $report->save();
+        return redirect()->route('report.show', $report);
     }
 
     /**
@@ -78,6 +90,7 @@ class ReportController extends Controller
      */
     public function destroy(Report $report)
     {
-        //
+        $report->delete();
+        return redirect()->route('post.index');
     }
 }
