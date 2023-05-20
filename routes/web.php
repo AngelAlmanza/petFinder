@@ -21,7 +21,8 @@ Route::controller(PetCenterController::class)->group(function () {
     Route::get('/create/pet-center', 'create')->name('petCenter.create');
     Route::get('/veterinary-help', 'index')->name('petCenter.index');
     Route::post('/create/pet-center', 'store')->name('petCenter.store');
-});
+    Route::get('/pet-center/{id}', 'show')->name('petCenter.show');
+})->middleware('auth');
 
 Route::middleware('auth')->group(function () {
     Route::get('/chat', [PageController::class, 'chat'])->name('chat');

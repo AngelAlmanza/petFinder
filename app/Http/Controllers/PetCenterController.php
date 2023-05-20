@@ -13,7 +13,8 @@ class PetCenterController extends Controller
      */
     public function index()
     {
-        return view('veterinary-help');
+        $petCenters = PetCenter::all();
+        return view('petCenters.veterinary-help', ['petCenters' => $petCenters]);
     }
 
     /**
