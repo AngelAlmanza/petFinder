@@ -8,6 +8,9 @@ Ademas de mostrar veterinarias cerca de la persona que lo necesite.
 Para clonar el repositorio se deben ejecutar los siguientes comandos
 
 composer install
+
 npm install
+
 php artisan migrate o php artisan migrate --seed
+
 php artisan storage:link
