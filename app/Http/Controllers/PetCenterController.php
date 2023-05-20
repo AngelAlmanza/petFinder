@@ -35,6 +35,8 @@ class PetCenterController extends Controller
         $petCenter->location = $request->input('location');
         $petCenter->schedule = $request->input('schedule');
         $petCenter->type = false;
+        $petCenter->email = $request->input('email');
+        $petCenter->phone = $request->input('phone');
         if ($request->has('type'))
         {
             $petCenter->type = true;
@@ -46,9 +48,10 @@ class PetCenterController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(PetCenter $petCenter)
+    public function show($id)
     {
-        //
+        $petCenter = PetCenter::find($id);
+        return view('petCenters.pet-center', ['petCenter' => $petCenter]);
     }
 
     /**

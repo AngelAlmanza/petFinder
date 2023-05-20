@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('location');
             $table->string('schedule');
             $table->boolean('type');
+            $table->string('email')->nullable();
+            $table->string('phone', 10)->nullable();
             $table->timestamps();
         });
     }

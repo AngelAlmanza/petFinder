@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Rules\TimeFormat;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StorePetCenter extends FormRequest
 {
@@ -26,6 +27,8 @@ class StorePetCenter extends FormRequest
             'name' => 'required|string|min:10|max:255',
             'location' => 'required|string|min:10|max:255',
             'schedule' => ['required', 'string', new TimeFormat()],
+            'email' => 'string|email',
+            'phone' => 'regex:/^[0-9]{10}$/',
         ];
     }
 
@@ -34,7 +37,15 @@ class StorePetCenter extends FormRequest
         return [
             'name' => 'Nombre',
             'location' => 'Ubicación',
-            'schedule' => 'Horario'
+            'schedule' => 'Horario',
+            'phone' => 'Teléfono',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'phone.regex' => 'El campo Teléfono debe ser un número de teléfono válido de 10 dígitos',
         ];
     }
 }
