@@ -4,20 +4,32 @@ PetFinder es una sitio web dedicado a ayudar a las personas que desean adoptar u
 
 Ademas de mostrar veterinarias cerca de la persona que lo necesite.
 
+## Como correr de forma local el sitio Web.
 
-Despues de clonar el repositorio se deben ejecutar los siguientes comandos
+### Instala lo siguiente:
+- [XAMP](https://www.apachefriends.org/es/index.html)
+- [Node.js](https://nodejs.org/en)
+- [Composer](https://getcomposer.org/download/)
 
-### composer install
+```
+Manten encendido el servidor de MySQL en XAMP.
+```
 
-### npm install
+### Despues de clonar el repositorio se deben ejecutar los siguientes comandos en la terminal:
+```
+composer install
 
-### php artisan migrate o php artisan migrate --seed
+npm install
 
-### php artisan storage:link
+# Usa uno de estos
+php artisan migrate
+php artisan migrate --seed
 
-**Para poder iniciar el servidor ejecutar los comandos**
 
-### php artisan serve
-### npm run dev
-
-# ** *IMPORTANTE TENER INSTALADO PHP MYSQL Y NODE ADEMAS DE CONFIGURAR SUS VARIABLES DE ENTORNO SEGÚN EL EJEMPLO* **
+php artisan storage:link
+```
+Para poder iniciar el servidor ejecutar los siguientes comandos:
+```
+php artisan serve
+npm run dev
+```
