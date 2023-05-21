@@ -20,14 +20,16 @@ class DatabaseSeeder extends Seeder
             'email' => 'almanza.angel245@gmail.com',
             'password' => Hash::make('PPCDSALVC2023'),
             'age' => 20,
-            'location' => 'Mexico'
+            'location' => 'Mexico',
+            'phone_number' => '6242251564',
         ]);
         \App\Models\User::factory()->create([
             'name' => 'Alexander',
             'email' => 'yourEmail@example.com',
             'password' => Hash::make('yourPassword'),
             'age' => 20,
-            'location' => 'Mexico'
+            'location' => 'Mexico',
+            'phone_number' => '6243194398',
         ]);
         \App\Models\Pet::factory(10)->create();
         \App\Models\PetCenter::factory(10)->create();
