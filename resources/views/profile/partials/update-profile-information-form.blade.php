@@ -24,6 +24,24 @@
         </div>
 
         <div>
+            <x-input-label for="age" :value="__('Edad')" />
+            <x-text-input id="age" name="age" type="text" class="mt-1 block w-full" :value="old('age', $user->age)" required autofocus autocomplete="age" />
+            <x-input-error class="mt-2" :messages="$errors->get('age')" />
+        </div>
+
+        <div>
+            <x-input-label for="location" :value="__('Ubicación')" />
+            <x-text-input id="location" name="location" type="text" class="mt-1 block w-full" :value="old('location', $user->location)" required autofocus autocomplete="location" />
+            <x-input-error class="mt-2" :messages="$errors->get('location')" />
+        </div>
+
+        <div>
+            <x-input-label for="phone_number" :value="__('Teléfono')" />
+            <x-text-input id="phone_number" name="phone_number" type="tel" class="mt-1 block w-full" :value="old('phone_number', $user->phone_number)" required autofocus pattern="^[0-9]{10}$" title="Debe ser un número de teléfono valido" autocomplete="phone_number" />
+            <x-input-error class="mt-2" :messages="$errors->get('phone_number')" />
+        </div>
+
+        <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />

@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Una vez tu cuenta es eliminada, todos sus recursos e información seran eliminados. Antes de eliminar tu cuenta, por favor descarga cualquier recurso o información que desees retener.') }}
+            {{ __('Una vez tu cuenta es eliminada, todos sus recursos e información seran eliminados.') }}
         </p>
     </header>
 
