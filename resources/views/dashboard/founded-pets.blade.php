@@ -18,9 +18,9 @@
         new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                labels: ['Red', 'Blue'],
+                labels: ['Enconntrado', 'No Enconntrado'],
                 datasets: [{
-                    label: '# of Votes',
+                    label: '# de Mascotas',
                     data: [12, 19],
                     borderWidth: 1
                 }]

@@ -3,10 +3,7 @@
 @section('content')
     <h1 class="w-full text-center font-bold">Almacenamiento</h1>
     <div class="flex flex-wrap w-full h-3/4 align-center justify-center">
-        <x-card-dashboard title="Testing Card" image="fa-solid fa-shield-dog" description="Testing" chart="none"/>
-        <x-card-dashboard title="Testing Card" image="fa-solid fa-shield-dog" description="Testing" chart="none"/>
-        <x-card-dashboard title="Testing Card" image="fa-solid fa-shield-dog" description="Testing" chart="none"/>
-        <x-card-dashboard title="Testing Card" image="fa-solid fa-shield-dog" description="Testing" chart="none"/>
+        <x-card-dashboard title="Data" image="none" description="100GB" chart="myChart"/>
     </div>
 @endsection
 @section('script')
@@ -18,11 +15,15 @@
         new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                labels: ['Red', 'Blue'],
+                labels: ['Libre', 'En Uso'],
                 datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19],
-                    borderWidth: 1
+                    label: 'Espacio',
+                    data: [70, 30],
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgb(205, 205, 205)',
+                        'rgb(51 , 124, 235)'
+                    ]
                 }]
                 },
             });
