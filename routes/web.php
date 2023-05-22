@@ -57,7 +57,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/dashboard/lost-pets', [DashboardController::class, 'lostPetsView'])->name('dashboard.lostPets');
     Route::get('/admin/dashboard/pets-founded', [DashboardController::class, 'petsFoundedView'])->name('dashboard.petsFounded');
     Route::get('/admin/dashboard/adopted-pets', [DashboardController::class, 'adoptedPetsView'])->name('dashboard.adoptedPets');
-    Route::get('/admin/dashboard/reports', [DashboardController::class, 'reportsView'])->name('dashboard.reports');
+    Route::get('/admin/dashboard/reports', [ReportController::class, 'index'])->name('dashboard.reports');
 });
 
 require __DIR__.'/auth.php';
