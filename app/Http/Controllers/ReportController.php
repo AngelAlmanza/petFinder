@@ -46,6 +46,7 @@ class ReportController extends Controller
         $report->body = $request->input('description');
         $report->reason = $request->input('reason');
         $report->url_image = $urlImg;
+        $report->post_id = $request->input('postID');
         $report->save();
         return redirect()->route('report.show', $report);
     }
