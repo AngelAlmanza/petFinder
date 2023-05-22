@@ -8,7 +8,8 @@
 @endsection
 @section('script')
     <script>
-        const totalSize = JSON.parse('{!! $totalSize !!}')
+        const serverTOTALSIZE = 10;
+        const totalSize = 5000/* JSON.parse('{!! $totalSize !!}') */
         console.log(totalSize);
 
         const ctx = document.getElementById('myChart');
@@ -18,7 +19,7 @@
                 labels: ['Libre', 'En Uso'],
                 datasets: [{
                     label: 'Espacio',
-                    data: [70, 30],
+                    data: [serverTOTALSIZE - (totalSize/1024), totalSize/1024],
                     borderWidth: 1,
                     backgroundColor: [
                         'rgb(205, 205, 205)',
