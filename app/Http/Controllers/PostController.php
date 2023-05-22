@@ -87,6 +87,8 @@ class PostController extends Controller
             $pet->state = 'En adopción';
             $pet->location = $request->input('placeAdopt');
         }
+
+        $pet->current_state = $pet->state;
         $pet->save();
         $post->pet_id = $pet->id;
         $post->save();
