@@ -8,9 +8,10 @@ use Illuminate\View\Component;
 
 class PostCard extends Component
 {
-    public $title;
+    public $title; 
     public $body;
     public $id;
+    
     /**
      * Create a new component instance.
      */

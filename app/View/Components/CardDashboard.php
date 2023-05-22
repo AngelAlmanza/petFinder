@@ -11,14 +11,16 @@ class CardDashboard extends Component
     public $title;
     public $image;
     public $description;
+    public $chart;
     /**
      * Create a new component instance.
      */
-    public function __construct($title,$image,$description)
+    public function __construct($title,$image,$description,$chart)
     {
         $this->title = $title;
         $this->image = $image;
         $this->description = $description;
+        $this->chart = $chart;
     }
 
     /**
