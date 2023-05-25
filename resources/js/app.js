@@ -28,3 +28,15 @@ try {
 } catch (error) {
     console.error(error);
 }
+
+try {
+    const header = document.getElementById('header');
+    const main = document.getElementById('main');
+    const footer = document.getElementById('footer');
+    const height = window.innerHeight;
+    if (!((header.clientHeight + main.clientHeight + footer.clientHeight) >= height)) {
+        main.style.height = `${(height - header.clientHeight - footer.clientHeight)}px`;
+    }
+} catch (error) {
+    console.error(error)
+}
