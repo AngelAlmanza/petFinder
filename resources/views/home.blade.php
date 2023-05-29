@@ -9,4 +9,7 @@
             <p>No hay posts</p>
         @endforelse
     </section>
+    <div class="w-full flex justify-center">
+        {{ $posts->links() }}
+    </div>
 @endsection
