@@ -9,10 +9,14 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="font-mono mx-auto flex w-full">
-    <x-aside-dashboard></x-aside-dashboard>
-    <main class="bg-slate-100 pt-4 w-8/12">
-        @yield('content')
-    </main>
-    @yield('script')
+    @role('admin')
+        <x-aside-dashboard></x-aside-dashboard>
+        <main class="bg-slate-100 pt-4 w-8/12">
+            @yield('content')
+        </main>
+        @yield('script')
+    @else
+        <p class="text-red-900 text-5xl font-bold">QUE PUTAS VRGS HACES AQUI</p>
+    @endrole
 </body>
 </html>
