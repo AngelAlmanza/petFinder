@@ -12,7 +12,10 @@
 @section('script')
     <script>
         const pets = JSON.parse('{!! $pets !!}')
-        console.log(pets);
+        for (let i = 0; i < pets.length; i++) {
+            const pet = pets[i];
+            console.log(pet);
+        }
 
         const ctx = document.getElementById('myChart');
         new Chart(ctx, {

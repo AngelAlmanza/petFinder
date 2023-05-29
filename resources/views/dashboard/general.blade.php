@@ -11,26 +11,5 @@
 @endsection
 
 @section('script')
-<script>
-  const ctx = document.getElementById('myChart');
-  new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-        labels: ['Red', 'Blue'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19],
-            borderWidth: 1
-        }]
-        },
-    });
 
-    myChart.canvas.parentNode.style.height = '150px';
-    myChart.canvas.parentNode.style.width = '150px';
-
-    myChart.canvas.height = 150;
-    myChart.canvas.width = 150;
-
-    myChart.update();
-</script>
 @endsection

@@ -25,7 +25,7 @@ php artisan migrate --seed
 
 php artisan storage:link
 ```
-#### Para poder iniciar el servidor ejecutar los siguientes comandos:
+#### Para poder iniciar el servidor ejecutar los siguientes comandos en dos terminales diferentes:
 ```
 php artisan serve
 npm run dev
