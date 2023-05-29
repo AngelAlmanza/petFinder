@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -13,8 +12,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // \App\Models\User::factory(10)->create();
-
         \App\Models\User::factory()->create([
             'name' => 'Angel',
             'email' => 'almanza.angel245@gmail.com',
@@ -31,9 +28,9 @@ class DatabaseSeeder extends Seeder
             'location' => 'Mexico',
             'phone_number' => '6243194398',
         ]);
-        \App\Models\Pet::factory(10)->create();
+        \App\Models\Pet::factory(300)->create();
         \App\Models\PetCenter::factory(10)->create();
-        \App\Models\Post::factory(10)->create();
+        \App\Models\Post::factory(300)->create();
         \App\Models\Report::factory(10)->create();
     }
 }

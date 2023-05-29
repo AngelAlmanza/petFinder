@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
@@ -17,13 +18,14 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $typePublicationOptions = ['Adopción', 'Mascota perdida', 'Mascota encontrada'];
 
         return [
             'title' => fake()->text(20),
             'body' => fake()->text(),
             'url_image' => fake()->text(20),
             'user_id' => 1,
-            'type_publication' => 'Adopción',
+            'type_publication' => Arr::random($typePublicationOptions),
             'pet_id' => ++self::$petId,
             'created_at' => now(),
             'updated_at' => now()

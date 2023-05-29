@@ -15,6 +15,7 @@
         <p class="text-base font-normal text-stone-800 mb-4">{{ $report->body }}</p>
         <br>
         <p class="text-base font-normal text-stone-800 mb-4">Reporte realizado por: <i class="text-sm font-light text-gray-400">{{ $report->user->name }}</i></p>
+        <p class="text-base font-normal text-stone-800 mb-4">ID del post: <i class="text-sm font-light text-gray-400">{{ $report->post_id }}</i></p>
         <form action="{{ route('report.destroy', $report) }}" method="POST">
             @csrf
             @method('delete')

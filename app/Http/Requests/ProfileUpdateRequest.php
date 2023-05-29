@@ -16,7 +16,7 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255', 'regex:/^[^0-9]*$/'],
             'email' => ['required', 'email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
             'age' => ['required', 'numeric'],
             'phone_number' => ['required', 'regex:/^[0-9]{10}$/'],
@@ -32,6 +32,13 @@ class ProfileUpdateRequest extends FormRequest
             'age' => 'Edad',
             'phone_number' => 'Número de télefono',
             'location' => 'Ubicación'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.regex' => 'El campo nombre no puede contener números'
         ];
     }
 }

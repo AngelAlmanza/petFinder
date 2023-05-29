@@ -6,7 +6,6 @@ use App\Http\Requests\StoreReport;
 use App\Http\Requests\UpdateReport;
 use App\Models\Post;
 use App\Models\Report;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,7 +16,8 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
+        $reports = Report::all();
+        return view('dashboard.reports', ['reports' => $reports]);
     }
 
     /**
@@ -46,6 +46,7 @@ class ReportController extends Controller
         $report->body = $request->input('description');
         $report->reason = $request->input('reason');
         $report->url_image = $urlImg;
+        $report->post_id = $request->input('postID');
         $report->save();
         return redirect()->route('report.show', $report);
     }

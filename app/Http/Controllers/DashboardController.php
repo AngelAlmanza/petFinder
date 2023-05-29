@@ -50,10 +50,10 @@ class DashboardController extends Controller
         return view('dashboard.adopted-pets', ['pets' => $pets]);
     }
 
-    public function reportsView()
-    {
-        $reports = DB::table('reports')->get();
-        $reports = addslashes(json_encode($reports));
-        return view('dashboard.reports', ['reports' => $reports]);
-    }
+    // public function reportsView()
+    // {
+    //     $reports = DB::table('reports')->get();
+    //     $reports = addslashes(json_encode($reports));
+    //     return view('dashboard.reports', ['reports' => $reports]);
+    // }
 }

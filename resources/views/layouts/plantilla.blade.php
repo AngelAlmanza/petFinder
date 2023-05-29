@@ -8,8 +8,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="font-mono mx-auto">
-    <x-header />
-        <main class="bg-slate-100 pt-4">
+    <x-header id="header" />
+        <main id="main" class="bg-slate-100 pt-4">
             @yield('content')
         </main>
     <x-footer />
