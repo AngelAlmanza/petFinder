@@ -20,6 +20,7 @@ class PetFactory extends Factory
         $states = ['Perdido', 'Encontrado', 'En adopción'];
         return [
             'name' => fake()->name(),
+            'current_state' => Arr::random($states),
             'species' => fake()->text(10),
             'description' => fake()->text(200),
             'race' => fake()->text(15),

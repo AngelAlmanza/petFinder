@@ -1,6 +1,8 @@
 import './bootstrap';
 import '../../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 import '../../node_modules/@fortawesome/fontawesome-free/js/all.min';
+import "/node_modules/flag-icons/css/flag-icons.min.css";
+import { countries } from './flags';
 
 import Alpine from 'alpinejs';
 
@@ -40,3 +42,4 @@ try {
 } catch (error) {
     console.error(error)
 }
+
