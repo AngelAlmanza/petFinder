@@ -5,6 +5,9 @@
     </div>
     <div class="w-full p-4">
         <h2 class="text-emerald-400">¿Tienes una veterinaria?</h2>
-        <a href="{{ route('petCenter.create') }}" class="text-slate-100 underline">Registrate y facilita que puedan encontrarte</a>
+        <a href="{{ route('petCenter.create') }}" class="text-slate-100 hover:underline hover:text-emerald-400">Registrate y facilita que puedan encontrarte</a>
     </div>
+    @role('admin')
+        <a href="{{ route('dashboard.general') }}" class="font-bold text-4xl text-slate-100 mb-4 hover:text-emerald-400 hover:underline">Dashboard</a>
+    @endrole
 </footer>

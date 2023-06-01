@@ -1,6 +1,9 @@
 @extends('layouts.plantilla')
 @section('title', "$post->title")
 @section('content')
+    @php
+        $id = auth()->id();
+    @endphp
     <figure class="p-4">
         <img src="{{ $post->url_image }}" alt="Foto de la mascota" class="md:w-auto w-72 md:max-w-md h-44 min-h-full sm:h-48 md:h-52 rounded-md mx-auto">
     </figure>
@@ -28,19 +31,30 @@
         <p class="text-sm font-light text-gray-400 mb-4"><i>Autor: {{ $post->user->name }}</i></p>
         <p class="text-sm font-light text-gray-400 mb-4"><i>Numero telefono: {{ $post->user->phone_number }}</i></p>
         <a href="{{ route('report.create', $post->id) }}" class="mb-4 block text-red-700 hover:cursor-pointer hover:underline focus:underline">Reportar</a>
-        <form action="{{ route('post.destroy', $post) }}" method="POST">
-            @csrf
-            @method('delete')
-            <button type="submit" class="text-base font-normal text-red-800 mb-4">Eliminar publicación</button>
-        </form>
+        @if ($id == $post->user_id)
+            <form action="{{ route('post.destroy', $post) }}" method="POST">
+                @csrf
+                @method('delete')
+                <button type="submit" class="text-base font-normal text-red-800 mb-4">Eliminar publicación</button>
+            </form>
+        @endif
+        @role('admin')
+            <form action="{{ route('post.destroy', $post) }}" method="POST">
+                @csrf
+                @method('delete')
+                <button type="submit" class="text-base font-normal text-red-800 mb-4">Eliminar publicación</button>
+            </form>
+        @endrole
         <div class="mx-auto pb-4 flex justify-center">
             <a href="{{ route('post.index') }}" class="text-slate-100 inline-flex items-center px-4 py-2 border border-transparent rounded-md font-bold text-base uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 bg-red-700">Volver</a>
-            <form action="{{ route('post.edit', $post) }}" method="GET">
-                @csrf
-                <x-primary-button class="ml-4">
-                    {{__('Editar')}}
-                </x-primary-button>
-            </form>
+            @if ($id == $post->user_id)
+                <form action="{{ route('post.edit', $post) }}" method="GET">
+                    @csrf
+                    <x-primary-button class="ml-4">
+                        {{__('Editar')}}
+                    </x-primary-button>
+                </form>
+            @endif
         </div>
     </div>
 @endsection
