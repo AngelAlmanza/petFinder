@@ -26,10 +26,10 @@
             <p class="text-base font-normal text-stone-800 mb-4">Raza: {{ $pet->race }}</p>
         @endif
         <p class="text-xs font-normal text-stone-800 mb-4">Fecha de publicación: {{ $post->created_at->format('d/m/Y') }}</p>
-        <p class="text-base font-bold text-stone-800 mb-4">Categoria: {{ $post->type_publication }}</p>
+        <p class="text-base font-bold text-stone-800 mb-4">Categoría: {{ $post->type_publication }}</p>
         <p class="text-base font-bold text-stone-800 mb-4">Estado actual de la mascota: {{ $pet->current_state }}</p>
         <p class="text-sm font-light text-gray-400 mb-4"><i>Autor: {{ $post->user->name }}</i></p>
-        <p class="text-sm font-light text-gray-400 mb-4"><i>Numero telefono: {{ $post->user->phone_number }}</i></p>
+        <p class="text-sm font-light text-gray-400 mb-4"><i>Número de teléfono: {{ $post->user->phone_number }}</i></p>
         <a href="{{ route('report.create', $post->id) }}" class="mb-4 block text-red-700 hover:cursor-pointer hover:underline focus:underline">Reportar</a>
         @if ($id == $post->user_id)
             <form action="{{ route('post.destroy', $post) }}" method="POST">

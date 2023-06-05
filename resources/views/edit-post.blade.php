@@ -8,7 +8,7 @@
                 @csrf
                 @method('PUT')
                 @if ($post->type_publication == 'Adopción')
-                    <x-input-label for="title" class="mt-4 mb-2" :value="__('Titulo de publicación')" />
+                    <x-input-label for="title" class="mt-4 mb-2" :value="__('Título de publicación')" />
                     <x-text-input id="title" class="w-full" type="text" name="title" value="{{ old('title', $post->title) }}" required autofocus />
                     <x-input-error :messages="$errors->get('title')" class="mt-2" />
                     <x-input-label for="placeAdopt" class="mt-4 mb-2" :value="__('Lugar donde se encuentra')" />
@@ -21,11 +21,11 @@
                     <x-input-label for="petName" class="mt-4 mb-2" :value="__('Nombre de la mascota')" />
                     <x-text-input id="petName" class="w-full" type="text" name="petName" value="{{ old('petName', $pet->name) }}" required autofocus />
                     <x-input-error :messages="$errors->get('petName')" class="mt-2" />
-                    <x-input-label for="placeLost" class="mt-4 mb-2" :value="__('Lugar donde se perdio')" />
+                    <x-input-label for="placeLost" class="mt-4 mb-2" :value="__('Lugar donde se perdió')" />
                     <x-text-input id="placeLost" class="w-full" type="text" name="placeLost" value="{{ old('placeLost', $pet->location) }}" required autofocus />
                     <x-input-error :messages="$errors->get('placeLost')" class="mt-2" />
                 @else
-                    <x-input-label for="name" class="mt-4 mb-2" :value="__('Titulo de la publicacion')" />
+                    <x-input-label for="name" class="mt-4 mb-2" :value="__('Título de la publicación')" />
                     <x-text-input id="name" class="w-full" type="text" name="name" value="{{ old('name', $post->title) }}" required autofocus />
                     <x-input-error :messages="$errors->get('name')" class="mt-2" />
                 @endif
@@ -33,7 +33,7 @@
                 <x-text-input id="breed" class="w-full" type="text" name="breed" value="{{ old('breed', $pet->race) }}" required autofocus />
                 <x-input-error :messages="$errors->get('breed')" class="mt-2" />
                 <div>
-                    <x-input-label for="description" class="mt-4 mb-4" :value="__('Descripcion')"/>
+                    <x-input-label for="description" class="mt-4 mb-4" :value="__('Descripción')"/>
                     <textarea name="description" id="description" class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" required>{{ old('description', $post->body) }}</textarea>
                 </div>
                 <x-input-error :messages="$errors->get('description')" class="mt-2" />

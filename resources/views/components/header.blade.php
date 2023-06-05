@@ -23,17 +23,17 @@
                         <li class="mt-2 hover:bg-gray-400 h-8"><a class="w-full h-full px-2 flex items-center" href="{{ route('post.create', 'lost-pet') }}">Perdí mi mascota</a></li>
                         <li class="mt-2 hover:bg-gray-400 h-8"><a class="w-full h-full px-2 flex items-center" href="{{ route('post.create', 'pet-found') }}">Encontré una mascota</a></li>
                         <li class="mt-2 hover:bg-gray-400 h-8"><a class="w-full h-full px-2 flex items-center" href="{{ route('adopt-pet') }}">Adoptar mascota</a></li>
-                        <li class="mt-2 hover:bg-gray-400 h-8"><a class="w-full h-full px-2 flex items-center" href="{{ route('post.create', 'give-up-for-adoption') }}">Dar en adopcion</a></li>
+                        <li class="mt-2 hover:bg-gray-400 h-8"><a class="w-full h-full px-2 flex items-center" href="{{ route('post.create', 'give-up-for-adoption') }}">Dar en adopción</a></li>
                     </ul>
                 </li>
                 <li><a href="{{ route('petCenter.index') }}">Ayuda veterinaria</a></li>
                 <li class="lg:hidden"><a href="{{ route('post.create', 'lost-pet') }}">Perdí mi mascota</a></li>
                 <li class="lg:hidden"><a href="{{ route('post.create', 'pet-found') }}">Encontré una mascota</a></li>
                 <li class="lg:hidden"><a href="{{ route('adopt-pet') }}">Adoptar mascota</a></li>
-                <li class="lg:hidden"><a href="{{ route('post.create', 'give-up-for-adoption')  }}">Dar en adopcion</a></li>
+                <li class="lg:hidden"><a href="{{ route('post.create', 'give-up-for-adoption')  }}">Dar en adopción</a></li>
                 <li><a href="{{ route('profile.edit') }}">Mi perfil</a></li>
                 <li class="lg:hidden">
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar sesion</a>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar sesión</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden"">
                         @csrf
                     </form>

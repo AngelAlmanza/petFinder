@@ -24,7 +24,7 @@
             </h2>
 
             <p class="mt-1 text-sm text-gray-600">
-                {{ __('Una vez tu cuenta es eliminada, todos sus recursos e información seran eliminados. Por favor ingresa tu contraseña para confirmar que deseas eliminar tu cuenta.') }}
+                {{ __('Una vez tu cuenta es eliminada, todos sus recursos e información serán eliminados. Por favor ingresa tu contraseña para confirmar que deseas eliminar tu cuenta.') }}
             </p>
 
             <div class="mt-6">

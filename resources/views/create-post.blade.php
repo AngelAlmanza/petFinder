@@ -18,7 +18,7 @@
             <x-input-error :messages="$errors->get('image')" class="mt-2" />
             <x-text-input id="url" class="w-full hidden" type="text" name="url" />
             @if ($action == 'give-up-for-adoption')
-                <x-input-label for="title" class="mt-4 mb-2" :value="__('Titulo de publicación')" />
+                <x-input-label for="title" class="mt-4 mb-2" :value="__('Título de publicación')" />
                 <x-text-input id="title" class="w-full" type="text" name="title" value="{{ old('title') }}" required autofocus />
                 <x-input-error :messages="$errors->get('title')" class="mt-2" />
             @elseif ($action == 'lost-pet')
@@ -26,7 +26,7 @@
                     <x-text-input id="animal" class="w-full" type="text" name="animal" value="{{ old('animal') }}" required autofocus />
                     <x-input-error :messages="$errors->get('animal')" class="mt-2" />
             @else
-                <x-input-label for="name" class="mt-4 mb-2" :value="__('Titulo de la publicacion')" />
+                <x-input-label for="name" class="mt-4 mb-2" :value="__('Título de la publicación')" />
                 <x-text-input id="name" class="w-full" type="text" name="name" value="{{ old('name') }}" required autofocus />
                 <x-input-error :messages="$errors->get('name')" class="mt-2" />
             @endif
@@ -37,11 +37,11 @@
                 <x-input-label for="petName" class="mt-4 mb-2" :value="__('Nombre de la mascota')" />
                 <x-text-input id="petName" class="w-full" type="text" name="petName" value="{{ old('petName') }}" required autofocus />
                 <x-input-error :messages="$errors->get('petName')" class="mt-2" />
-                <x-input-label for="placeLost" class="mt-4 mb-2" :value="__('Lugar donde se perdio')" />
+                <x-input-label for="placeLost" class="mt-4 mb-2" :value="__('Lugar donde se perdió')" />
                 <x-text-input id="placeLost" class="w-full" type="text" name="placeLost" value="{{ old('placeLost') }}" required autofocus />
                 <x-input-error :messages="$errors->get('placeLost')" class="mt-2" />
             @elseif ($action == 'give-up-for-adoption')
-                <x-input-label for="placeAdopt" class="mt-4 mb-2" :value="__('Lugar donde se encuentra')" />
+                <x-input-label for="placeAdopt" class="mt-4 mb-2" :value="__('Ubicación actual')" />
                 <x-text-input id="placeAdopt" class="w-full" type="text" name="placeAdopt" value="{{ old('placeAdopt') }}" required autofocus />
                 <x-input-error :messages="$errors->get('placeAdopt')" class="mt-2" />
             @endif

@@ -30,7 +30,7 @@
         <div class="block mt-4">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-emerald-400 shadow-sm focus:ring-emerald-300" name="remember">
-                <span class="ml-2 text-sm text-gray-600">{{ __('Recuerdame') }}</span>
+                <span class="ml-2 text-sm text-gray-600">{{ __('Recuérdame') }}</span>
             </label>
         </div>
 
@@ -41,7 +41,7 @@
                     {{ __('¿Olvidaste tu contraseña?') }}
                 </a>
                 <a class="underline text-sm text-gray-600 hover:text-red-400 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" href="{{ route('register') }}">
-                    {{ __('Registrate') }}
+                    {{ __('Regístrate') }}
                 </a>
             </div>
             @endif

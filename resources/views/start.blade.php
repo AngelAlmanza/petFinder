@@ -13,14 +13,14 @@
             <h1 class="font-serif text-6xl font-bold text-emerald-400 drop-shadow-lg -rotate-12 mt-28 md:mt-48 md:ml-4 md:pl-8 xl:pl-16">PetFinder</h1>
             <div class="mt-12 flex place-items-center flex-col md:flex-row md:justify-evenly md:pl-8 xl:pl-16">
                 <button class="bg-emerald-400 text-base font-bold text-stone-800 w-40 h-12 rounded-lg mt-4 md:mr-4">
-                    <a href="{{ route('login') }}" class="w-full h-full">Iniciar Sesión</a>
+                    <a href="{{ route('login') }}" class="w-full h-full uppercase">Iniciar Sesión</a>
                 </button>
                 <button class="bg-red-700 text-base font-bold text-slate-100 w-40 h-12 rounded-lg mt-4 md:mr-4">
-                    <a href="{{ route('register') }}" class="w-full h-full">Crear Cuenta</a>
+                    <a href="{{ route('register') }}" class="w-full h-full uppercase">Crear Cuenta</a>
                 </button>
             </div>
             <div class="rounded-full bg-slate-100 absolute bottom-0 p-14 text-center translate-y-1/2 sm:translate-y-3/4 md:-mb-9 xl:-mb-24 circle-pharase">
-                <p class="mt-4">"El amor es una palabra de cuatro patas"</p>
+                <p class="mt-1 md:mt-4 text-lg md:text-xl">"El amor es una palabra de cuatro patas"</p>
             </div>
         </section>
         <hr class="bg-gray-400 drop-shadow w-4/5 h-px mx-auto my-4">

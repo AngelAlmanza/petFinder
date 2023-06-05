@@ -5,7 +5,7 @@
         </h2>
 
         <p class="mt-1 text-sm text-gray-600">
-            {{ __('Asegurate de que tu cuenta este utilizando una contraseña larga y segura.') }}
+            {{ __('Asegurate de que tu cuenta esté utilizando una contraseña larga y segura.') }}
         </p>
     </header>
 
