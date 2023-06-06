@@ -1,14 +1,13 @@
 @extends('layouts.dashboard')
 @section('title', 'Mascotas Perdidas')
 @section('content')
-    <h1 class="w-full text-center font-bold">Mascotas perdidas</h1>
-    <div class="flex flex-wrap w-full h-3/4 align-center justify-center">
-        <x-card-dashboard title="Testing Card" image="" description="Testing" chart="LFChart"/>
-        <x-card-dashboard title="Pais que encuentra mas" image="fi fi-ru" description="Rusia" chart="none"/>
-        <x-card-dashboard title="Pais que encuentra menos" image="fi fi-gb" description="Gran Bretaña" chart="none"/>
-        <x-card-dashboard title="Pais que empieza a encontrar mas" image="fi fi-nz" description="Nueva Zelanda" chart="none"/>
-        <x-card-dashboard title="Pais que empieza a encontrar menos" image="fi fi-us" description="Estados Unido" chart="none"/>
-        <x-card-dashboard title="Pais que come mas perros" image="fi fi-cn" description="China" chart="none"/>
+    <h1 class="w-full text-center text-3xl font-bold mb-4">Mascotas perdidas</h1>
+    <div class="flex flex-wrap w-full align-center justify-center">
+        <x-card-dashboard title="Mascotas perdidas" image="" description="" chart="LFChart"/>
+        <x-card-dashboard title="País que encuentra mas mascotas" image="fi fi-ru" description="Rusia" chart="none"/>
+        <x-card-dashboard title="País que encuentra menos mascotas" image="fi fi-gb" description="Gran Bretaña" chart="none"/>
+        <x-card-dashboard title="País que empieza a encontrar mas mascotas" image="fi fi-nz" description="Nueva Zelanda" chart="none"/>
+        <x-card-dashboard title="País que empieza a encontrar menos mascotas" image="fi fi-us" description="Estados Unido" chart="none"/>
     </div>
 @endsection
 @section('script')
@@ -23,13 +22,13 @@
                 data: {
                 labels: ['Perdido', 'Encontrado'],
                 datasets: [{
-                    label: '# de Mascotas',
+                    label: 'Número de Mascotas',
                     data: [pets.length, Bpets.length],
                     borderWidth: 1
                 }]
                 },
             });
-            
+
             ctx.canvas.parentNode.style.height = '150px';
             ctx.canvas.parentNode.style.width = '150px';
             ctx.canvas.height = 150;

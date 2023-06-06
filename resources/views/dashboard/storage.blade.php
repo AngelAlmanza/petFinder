@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 @section('title', 'Almacenamiento')
 @section('content')
-    <h1 class="w-full text-center font-bold">Almacenamiento</h1>
+    <h1 class="w-full text-center text-3xl font-bold mb-4">Almacenamiento</h1>
     <div class="flex flex-wrap w-full h-3/4 align-center justify-center">
         <x-card-dashboard title="Data" image="none" description="100GB" chart="myChart"/>
     </div>

@@ -55,7 +55,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/admin/dashboard/general-view', [DashboardController::class, 'generalView'])->name('dashboard.general');
     Route::get('/admin/dashboard/storage', [DashboardController::class, 'storageView'])->name('dashboard.storage');
     Route::get('/admin/dashboard/lost-pets', [DashboardController::class, 'lostPetsView'])->name('dashboard.lostPets');
-    Route::get('/admin/dashboard/pets-founded', [DashboardController::class, 'petsFoundedView'])->name('dashboard.petsFounded');
     Route::get('/admin/dashboard/adopted-pets', [DashboardController::class, 'adoptedPetsView'])->name('dashboard.adoptedPets');
     Route::get('/admin/dashboard/reports', [ReportController::class, 'index'])->name('dashboard.reports');
 });

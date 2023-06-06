@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 @section('title', 'Reportes')
 @section('content')
-    <h1 class="w-full text-center font-bold text-4xl">Reportes</h1>
+    <h1 class="w-full text-center text-3xl font-bold mb-4">Reportes</h1>
     <section class="p-4">
         @forelse ($reports as $report)
             <article class="w-full h-12 my-4 bg-slate-50 shadow-md rounded-lg hover:scale-105 transition-transform flex items-center justify-between px-4">

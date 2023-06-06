@@ -1,15 +1,14 @@
 @extends('layouts.dashboard')
 @section('title', 'Mascotas Adoptadas')
 @section('content')
-    <h1 class="w-full text-center font-bold">Mascotas adoptadas</h1>
-    <div class="flex flex-wrap w-full h-3/4 align-center justify-center">
+    <h1 class="w-full text-center text-3xl font-bold mb-4">Mascotas adoptadas</h1>
+    <div class="flex flex-wrap w-full align-center justify-center">
         <x-card-dashboard title="Mascotas Adoptadas" image="none" description="Mayo 2023" chart="AdoptionChart"/>
-        <x-card-dashboard title="Pais que adopta mas" image="fi fi-ar" description="Argentina" chart="none"/>
-        <x-card-dashboard title="Pais que adopta menos" image="fi fi-kr" description="Corea" chart="none"/>
+        <x-card-dashboard title="País que adopta mas mascotas" image="fi fi-ar" description="Argentina" chart="none"/>
+        <x-card-dashboard title="País que adopta menos mascotas" image="fi fi-kr" description="Corea" chart="none"/>
         <x-card-dashboard title="Mascotas Adoptadas" image="none" description="2023" chart="AdoptionChart2"/>
-        <x-card-dashboard title="Pais que empieza a adoptar mas" image="fi fi-de" description="Alemania" chart="none"/>
-        <x-card-dashboard title="Pais que empieza a adoptar menos" image="fi fi-mx" description="Mexico" chart="none"/>
-        <x-card-dashboard title="Pais que come mas perros" image="fi fi-cn" description="China" chart="none"/>
+        <x-card-dashboard title="País que empieza a adoptar mas mascotas" image="fi fi-de" description="Alemania" chart="none"/>
+        <x-card-dashboard title="País que empieza a adoptar menos mascotas" image="fi fi-mx" description="Mexico" chart="none"/>
     </div>
 @endsection
 @section('script')
@@ -23,7 +22,7 @@
                 data: {
                 labels: ['Adoptado', 'No Adoptado'],
                 datasets: [{
-                    label: '# de Mascotas',
+                    label: 'Número de Mascotas',
                     data: [pets.length - Apet, Apet],
                     borderWidth: 1,
                     backgroundColor: [
@@ -50,7 +49,7 @@
                 }]
                 },
             });
-            
+
             ctx.canvas.parentNode.style.height = '150px';
             ctx.canvas.parentNode.style.width = '150px';
             ctx.canvas.height = 150;

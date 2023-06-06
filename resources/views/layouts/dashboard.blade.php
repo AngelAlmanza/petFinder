@@ -8,10 +8,10 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="font-mono mx-auto flex w-full">
+<body class="font-mono mx-auto flex w-full h-screen">
     @role('admin')
         <x-aside-dashboard></x-aside-dashboard>
-        <main class="bg-slate-100 pt-4 w-8/12">
+        <main class="bg-slate-100 py-4 w-8/12 overflow-auto">
             @yield('content')
         </main>
         @yield('script')
