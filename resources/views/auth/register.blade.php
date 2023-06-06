@@ -21,7 +21,7 @@
         <!-- Location -->
         <div class="mt-4">
             <x-input-label for="location" :value="__('Ubicación')" />
-            <x-text-input id="location" class="block mt-1 w-full" type="text" name="location" :value="old('location')" required autofocus autocomplete="location" />
+            <x-select-countries />
             <x-input-error :messages="$errors->get('location')" class="mt-2" />
         </div>
 

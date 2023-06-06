@@ -43,3 +43,21 @@ try {
     console.error(error)
 }
 
+try {
+    const selectMenu = document.getElementById('select');
+    const options = document.getElementById('options');
+    const inputLocation = document.getElementById('ubicacion');
+    const optionsList = document.querySelectorAll('#options > div');
+    selectMenu.addEventListener('click', () => {
+        options.classList.toggle('hidden');
+    });
+    optionsList.forEach((opcion) => {
+        opcion.addEventListener('click', (e) => {
+            inputLocation.value = e.currentTarget.querySelector('.country').innerText;
+            selectMenu.innerHTML = opcion.innerHTML;
+            options.classList.toggle('hidden');
+        });
+    });
+} catch (error) {
+    console.error(error);
+}
