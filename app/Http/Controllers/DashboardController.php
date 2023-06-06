@@ -9,7 +9,11 @@ class DashboardController extends Controller
 {
     public function generalView()
     {
-        return view('dashboard.general');
+        $totalReports = DB::table('reports')->count('*');
+        $totalPetsLost = DB::table('pets')->where('current_state', '=', 'Perdido')->count();
+        $totalPetsWithoutAdopted = DB::table('pets')->where('current_state', '=', 'En adopción')->count();
+        $totalPetsAdopted = DB::table('pets')->where('current_state', '=', 'Adoptado')->count();
+        return view('dashboard.general', ['totalReports' => $totalReports,  'totalPetsLost' => $totalPetsLost, 'totalPetsAdopted' => $totalPetsAdopted, 'totalPetsWithoutAdopted' => $totalPetsWithoutAdopted]);
     }
 
     public function storageView()
