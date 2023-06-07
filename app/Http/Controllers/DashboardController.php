@@ -35,9 +35,31 @@ class DashboardController extends Controller
 
     public function lostPetsView()
     {
-        $pets = DB::table('pets')->where('state', '=', 'Perdido')->get();
+        $pets = DB::table('pets')->get();
+        $petsController = json_decode(DB::table('pets')->get(), true);
+        $countCountries = [];
+
+        foreach ($petsController as $pet) {
+            if ($pet['current_state'] === 'Encontrado') {
+                $pais = $pet['location'];
+                if (!isset($countCountries[$pais])) {
+                    $countCountries[$pais] = 1;
+                } else {
+                    $countCountries[$pais]++;
+                }
+            }
+        }
+
+        $leastFoundCountry = min($countCountries);
+        $mostFoundCountry = max($countCountries);
+        $leastFoundCountries = array_keys($countCountries, $leastFoundCountry);
+        $mostFoundCountries = array_keys($countCountries, $mostFoundCountry);
+        $finalLeastCountry = $leastFoundCountries[0];
+        $finalMostCountry = $mostFoundCountries[0];
+
+
         $pets = addslashes(json_encode($pets));
-        return view('dashboard.lost-pets', ['pets' => $pets]);
+        return view('dashboard.lost-pets', ['pets' => $pets, 'finalLeastCountry' => $finalLeastCountry, 'finalMostCountry' => $finalMostCountry]);
     }
 
     public function petsFoundedView()
@@ -53,11 +75,4 @@ class DashboardController extends Controller
         $pets = addslashes(json_encode($pets));
         return view('dashboard.adopted-pets', ['pets' => $pets]);
     }
-
-    // public function reportsView()
-    // {
-    //     $reports = DB::table('reports')->get();
-    //     $reports = addslashes(json_encode($reports));
-    //     return view('dashboard.reports', ['reports' => $reports]);
-    // }
 }
