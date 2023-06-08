@@ -7,8 +7,8 @@
         <x-card-dashboard title="Mascotas perdidas" image="" description="" chart="LFChart"/>
         <x-card-dashboard title="País que encuentra menos mascotas" image="fi" description="" chart="none"/>
         <x-card-dashboard title="País que encuentra mas mascotas" image="fi" description="" chart="none"/>
-        <x-card-dashboard title="País que empieza a encontrar mas mascotas" image="fi fi-nz" description="Nueva Zelanda" chart="none"/>
-        <x-card-dashboard title="País que empieza a encontrar menos mascotas" image="fi fi-us" description="Estados Unido" chart="none"/>
+        <x-card-dashboard title="País que empieza a encontrar mas mascotas" image="fi" description="" chart="none"/>
+        <x-card-dashboard title="País que empieza a encontrar menos mascotas" image="fi" description="" chart="none"/>
     </div>
 @endsection
 @section('script')
@@ -229,8 +229,12 @@
         const countryM = '{!! $finalMostCountry !!}';
         const countryLeast = document.querySelector('#cards > div:nth-child(2) > div:nth-child(2) > i');
         const countryMost = document.querySelector('#cards > div:nth-child(3) > div:nth-child(2) > i');
+        const countryBeginM = document.querySelector('#cards > div:nth-child(4) > div:nth-child(2) > i');
+        const countryBeginL = document.querySelector('#cards > div:nth-child(5) > div:nth-child(2) > i');
         const countryLeastName = document.querySelector('#cards > div:nth-child(2) > div.flex.flex-col.justify-center.align-center > p');
         const countryMostName = document.querySelector('#cards > div:nth-child(3) > div.flex.flex-col.justify-center.align-center > p');
+        const countryBeginNameM = document.querySelector('#cards > div:nth-child(4) > div.flex.flex-col.justify-center.align-center > p');
+        const countryBeginNameL = document.querySelector('#cards > div:nth-child(5) > div.flex.flex-col.justify-center.align-center > p');
         const countryLFlag = countries.filter(country => country.name === countryL)[0].code;
         const countryMFlag = countries.filter(country => country.name === countryM)[0].code;
         countryLeastName.innerText = countryL;
@@ -295,5 +299,11 @@
             },
         };
         new Chart(document.getElementById('petsLostMonth'), config);
+        const countryBeginLeast = countries.filter(country => country.name === petsGroupedByMonthArray[11][1].location)[0].code;
+        const countryBeginMost = countries.filter(country => country.name === petsGroupedByMonthArray[4][1].location)[0].code;
+        countryBeginL.classList.add(`fi-${countryBeginLeast}`);
+        countryBeginM.classList.add(`fi-${countryBeginMost}`);
+        countryBeginNameL.innerText = petsGroupedByMonthArray[11][1].location;
+        countryBeginNameM.innerText = petsGroupedByMonthArray[4][1].location;
     </script>
 @endsection

@@ -13,7 +13,12 @@ class DashboardController extends Controller
         $totalPetsLost = DB::table('pets')->where('current_state', '=', 'Perdido')->count();
         $totalPetsWithoutAdopted = DB::table('pets')->where('current_state', '=', 'En adopción')->count();
         $totalPetsAdopted = DB::table('pets')->where('current_state', '=', 'Adoptado')->count();
-        return view('dashboard.general', ['totalReports' => $totalReports,  'totalPetsLost' => $totalPetsLost, 'totalPetsAdopted' => $totalPetsAdopted, 'totalPetsWithoutAdopted' => $totalPetsWithoutAdopted]);
+        return view('dashboard.general', [
+            'totalReports' => $totalReports,
+            'totalPetsLost' => $totalPetsLost,
+            'totalPetsAdopted' => $totalPetsAdopted,
+            'totalPetsWithoutAdopted' => $totalPetsWithoutAdopted
+        ]);
     }
 
     public function storageView()
@@ -57,9 +62,12 @@ class DashboardController extends Controller
         $finalLeastCountry = $leastFoundCountries[0];
         $finalMostCountry = $mostFoundCountries[0];
 
-
         $pets = addslashes(json_encode($pets));
-        return view('dashboard.lost-pets', ['pets' => $pets, 'finalLeastCountry' => $finalLeastCountry, 'finalMostCountry' => $finalMostCountry]);
+        return view('dashboard.lost-pets', [
+            'pets' => $pets,
+            'finalLeastCountry' => $finalLeastCountry,
+            'finalMostCountry' => $finalMostCountry
+        ]);
     }
 
     public function petsFoundedView()
