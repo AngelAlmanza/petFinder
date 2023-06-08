@@ -2,6 +2,7 @@
 @section('title', 'Mascotas Perdidas')
 @section('content')
     <h1 class="w-full text-center text-3xl font-bold mb-4">Mascotas perdidas</h1>
+    <canvas id="petsLostMonth"></canvas>
     <div id="cards" class="flex flex-wrap w-full align-center justify-center">
         <x-card-dashboard title="Mascotas perdidas" image="" description="" chart="LFChart"/>
         <x-card-dashboard title="País que encuentra menos mascotas" image="fi" description="" chart="none"/>
@@ -236,5 +237,63 @@
         countryMostName.innerText = countryM;
         countryLeast.classList.add(`fi-${countryLFlag}`);
         countryMost.classList.add(`fi-${countryMFlag}`);
+    </script>
+    <script>
+        const pets = JSON.parse('{!! $pets !!}');
+        const petsGroupedByMonth = {};
+        pets.forEach(pet => {
+            const date = new Date(pet.updated_at);
+            const month = date.getMonth() + 1;
+            (petsGroupedByMonth[month]) ? petsGroupedByMonth[month].push(pet) : petsGroupedByMonth[month] = [pet];
+        });
+        const petsGroupedByMonthArray = Object.keys(petsGroupedByMonth).map(key => petsGroupedByMonth[key]);
+        const lostMonth = [];
+        petsGroupedByMonthArray.forEach(month => {
+            let i = 0;
+            month.forEach(pet => {
+                if (pet.current_state === "Perdido") {
+                    i++;
+                }
+            });
+            lostMonth.push(i);
+        });
+        const data = {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            datasets: [{
+                label: 'Mascotas perdidas por mes',
+                data: lostMonth,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)'
+                ],
+                borderWidth: 1
+            }]
+        };
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        };
+        new Chart(document.getElementById('petsLostMonth'), config);
     </script>
 @endsection
