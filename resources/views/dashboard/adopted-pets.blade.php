@@ -2,15 +2,36 @@
 @section('title', 'Mascotas Adoptadas')
 @section('content')
     <h1 class="w-full text-center text-3xl font-bold mb-4">Mascotas adoptadas</h1>
-    <div class="flex flex-wrap w-full align-center justify-center">
+    <canvas id="adoptedPetsMonth"></canvas>
+    <div id="cards" class="flex flex-wrap w-full align-center justify-center">
         <x-card-dashboard title="Mascotas Adoptadas" image="none" description="Mayo 2023" chart="AdoptionChart"/>
-        <x-card-dashboard title="País que adopta mas mascotas" image="fi fi-ar" description="Argentina" chart="none"/>
-        <x-card-dashboard title="País que adopta menos mascotas" image="fi fi-kr" description="Corea" chart="none"/>
-        <x-card-dashboard title="País que empieza a adoptar mas mascotas" image="fi fi-de" description="Alemania" chart="none"/>
-        <x-card-dashboard title="País que empieza a adoptar menos mascotas" image="fi fi-mx" description="Mexico" chart="none"/>
+        <x-card-dashboard title="País que adopta mas mascotas" image="fi" description="" chart="none"/>
+        <x-card-dashboard title="País que adopta menos mascotas" image="fi" description="" chart="none"/>
+        <x-card-dashboard title="País que empieza a adoptar mas mascotas" image="fi" description="" chart="none"/>
+        <x-card-dashboard title="País que empieza a adoptar menos mascotas" image="fi" description="" chart="none"/>
     </div>
 @endsection
 @section('script')
+    <script>
+        const adoptedPets = JSON.parse('{!! $pets !!}').filter(pet => pet.current_state === "Adoptado");
+        const unadoptedPets = JSON.parse('{!! $pets !!}').filter(pet => pet.current_state === "En adopción");
+        const ctx = document.getElementById('AdoptionChart');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Adoptado', 'No Adoptado'],
+                datasets: [{
+                    label: 'Número de Mascotas',
+                    data: [adoptedPets.length, unadoptedPets.length],
+                    borderWidth: 1,
+                    backgroundColor: [
+                        'rgb(230, 57, 70)',
+                        'rgb(69, 123, 157)'
+                    ],
+                }],
+            },
+        });
+    </script>
     <script>
         const countries = [
             { name: "Afganistán", code: "af" },
@@ -208,23 +229,85 @@
             { name: "Zambia", code: "zm" },
             { name: "Zimbabue", code: "zw" },
         ];
-        const adoptedPets = JSON.parse('{!! $pets !!}').filter(pet => pet.current_state === "Adoptado");
-        const unadoptedPets = JSON.parse('{!! $pets !!}').filter(pet => pet.current_state === "En adopción");
-        const ctx = document.getElementById('AdoptionChart');
-        new Chart(ctx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Adoptado', 'No Adoptado'],
-                datasets: [{
-                    label: 'Número de Mascotas',
-                    data: [adoptedPets.length, unadoptedPets.length],
-                    borderWidth: 1,
-                    backgroundColor: [
-                        'rgb(230, 57, 70)',
-                        'rgb(69, 123, 157)'
-                    ],
-                }],
-            },
+        const countryL = '{!! $finalLeastCountry !!}';
+        const countryM = '{!! $finalMostCountry !!}';
+        const countryLeast = document.querySelector('#cards > div:nth-child(2) > div:nth-child(2) > i');
+        const countryMost = document.querySelector('#cards > div:nth-child(3) > div:nth-child(2) > i');
+        const countryBeginM = document.querySelector('#cards > div:nth-child(4) > div:nth-child(2) > i');
+        const countryBeginL = document.querySelector('#cards > div:nth-child(5) > div:nth-child(2) > i');
+        const countryLeastName = document.querySelector('#cards > div:nth-child(2) > div.flex.flex-col.justify-center.align-center > p');
+        const countryMostName = document.querySelector('#cards > div:nth-child(3) > div.flex.flex-col.justify-center.align-center > p');
+        const countryBeginNameM = document.querySelector('#cards > div:nth-child(4) > div.flex.flex-col.justify-center.align-center > p');
+        const countryBeginNameL = document.querySelector('#cards > div:nth-child(5) > div.flex.flex-col.justify-center.align-center > p');
+        const countryLFlag = countries.filter(country => country.name === countryL)[0].code;
+        const countryMFlag = countries.filter(country => country.name === countryM)[0].code;
+        countryLeastName.innerText = countryL;
+        countryMostName.innerText = countryM;
+        countryLeast.classList.add(`fi-${countryLFlag}`);
+        countryMost.classList.add(`fi-${countryMFlag}`);
+    </script>
+    <script>
+        const pets = JSON.parse('{!! $pets !!}');
+        const petsGroupedByMonth = {};
+        pets.forEach(pet => {
+            const date = new Date(pet.updated_at);
+            const month = date.getMonth() + 1;
+            (petsGroupedByMonth[month]) ? petsGroupedByMonth[month].push(pet) : petsGroupedByMonth[month] = [pet];
         });
+        const petsGroupedByMonthArray = Object.keys(petsGroupedByMonth).map(key => petsGroupedByMonth[key]);
+        const adoptedMonth = [];
+        petsGroupedByMonthArray.forEach(month => {
+            let i = 0;
+            month.forEach(pet => {
+                if (pet.current_state === "Adoptado") {
+                    i++;
+                }
+            });
+            adoptedMonth.push(i);
+        });
+        const data = {
+            labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            datasets: [{
+                label: 'Mascotas adoptadas por mes',
+                data: adoptedMonth,
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 205, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(201, 203, 207, 0.2)'
+                ],
+                borderColor: [
+                    'rgb(255, 99, 132)',
+                    'rgb(255, 159, 64)',
+                    'rgb(255, 205, 86)',
+                    'rgb(75, 192, 192)',
+                    'rgb(54, 162, 235)',
+                    'rgb(153, 102, 255)',
+                    'rgb(201, 203, 207)'
+                ],
+                borderWidth: 1
+            }]
+        };
+        const config = {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        };
+        new Chart(document.getElementById('adoptedPetsMonth'), config);
+        const countryBeginLeast = countries.filter(country => country.name === petsGroupedByMonthArray[10][1].location)[0].code;
+        const countryBeginMost = countries.filter(country => country.name === petsGroupedByMonthArray[2][1].location)[0].code;
+        countryBeginL.classList.add(`fi-${countryBeginLeast}`);
+        countryBeginM.classList.add(`fi-${countryBeginMost}`);
+        countryBeginNameL.innerText = petsGroupedByMonthArray[10][1].location;
+        countryBeginNameM.innerText = petsGroupedByMonthArray[2][1].location;
     </script>
 @endsection
