@@ -70,16 +70,9 @@ class DashboardController extends Controller
         ]);
     }
 
-    public function petsFoundedView()
-    {
-        $pets = DB::table('pets')->where('state', '=', 'Encontrado')->get();
-        $pets = addslashes(json_encode($pets));
-        return view('dashboard.founded-pets', ['pets' => $pets]);
-    }
-
     public function adoptedPetsView()
     {
-        $pets = DB::table('pets')->where('state', '=', 'En adopción')->get();
+        $pets = DB::table('pets')->get();
         $pets = addslashes(json_encode($pets));
         return view('dashboard.adopted-pets', ['pets' => $pets]);
     }
