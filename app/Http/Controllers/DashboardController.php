@@ -9,13 +9,17 @@ class DashboardController extends Controller
 {
     public function generalView()
     {
+        $totalUsuarios = DB::table('users')->count('*');
         $totalReports = DB::table('reports')->count('*');
         $totalPetsLost = DB::table('pets')->where('current_state', '=', 'Perdido')->count();
+        $totalPetsFound = DB::table('pets')->where('current_state', '=', 'Encontrado')->count();
         $totalPetsWithoutAdopted = DB::table('pets')->where('current_state', '=', 'En adopción')->count();
         $totalPetsAdopted = DB::table('pets')->where('current_state', '=', 'Adoptado')->count();
         return view('dashboard.general', [
+            'totalUsuarios' => $totalUsuarios,
             'totalReports' => $totalReports,
             'totalPetsLost' => $totalPetsLost,
+            'totalPetsFound' => $totalPetsFound,
             'totalPetsAdopted' => $totalPetsAdopted,
             'totalPetsWithoutAdopted' => $totalPetsWithoutAdopted
         ]);
