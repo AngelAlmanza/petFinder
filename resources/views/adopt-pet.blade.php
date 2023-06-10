@@ -8,7 +8,7 @@
                 $matchingPost = $posts->firstWhere('pet_id', $pet->id);
                 $postId = $matchingPost ? $matchingPost->id : 'null';
             @endphp
-            @if ($matchingPost->type_publication == 'Adopción')
+            @if (isset($matchingPost->type_publication) && $matchingPost->type_publication == 'Adopción')
                 <x-pet-adoption-post-card title="{{ $matchingPost->title }}" description="{{ $pet->description }}" petId="{{ $pet->id }}" postId="{{ $postId }}" />
             @endif
         @empty

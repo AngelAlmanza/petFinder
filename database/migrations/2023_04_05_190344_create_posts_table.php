@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('body');
             $table->string('url_image');
             $table->unsignedBigInteger('user_id')->nullable();
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->enum('type_publication', ['Adopción', 'Mascota perdida', 'Mascota encontrada']);
             $table->unsignedBigInteger('pet_id')->nullable();
             $table->foreign('pet_id')->references('id')->on('pets')->onDelete('set null');

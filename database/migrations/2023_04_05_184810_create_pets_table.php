@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('race');
             $table->enum('state', ['Perdido', 'En adopción', 'Encontrado', 'Adoptado']);
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->string('location')->nullable();
             $table->string('url_image');
             $table->enum('current_state', ['Perdido', 'En adopción', 'Encontrado', 'Adoptado'])->nullable();
