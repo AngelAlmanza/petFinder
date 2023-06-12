@@ -8,18 +8,19 @@ use Illuminate\View\Component;
 
 class PostCard extends Component
 {
-    public $title; 
+    public $title;
     public $body;
     public $id;
-    
+    public $category;
     /**
      * Create a new component instance.
      */
-    public function __construct($title, $body, $id)
+    public function __construct($title, $body, $id, $category)
     {
         $this->title = $title;
         $this->body = $body;
         $this->id = $id;
+        $this->category = $category;
     }
 
     /**
