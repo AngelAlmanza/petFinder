@@ -13,7 +13,7 @@
             <x-input-error :messages="$errors->get('reason')" class="mt-2" />
             <x-input-text-area />
             <x-input-error :messages="$errors->get('description')" class="mt-2" />
-                <p class="text-base font-normal text-neutral-900 mb-4">La foto es opcional pero porfavor si tienes una prueba para enviarnos seria de mucha ayuda</p>
+                <p class="text-base font-normal text-neutral-900 mb-4">La foto es opcional pero por favor si tienes una prueba para enviarnos seria de mucha ayuda</p>
             <x-input-image />
             <x-input-error :messages="$errors->get('image')" class="mt-2" />
             <div class="mx-auto mt-4 pb-4 w-full flex justify-evenly">
