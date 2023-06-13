@@ -15,6 +15,7 @@
         <form id="form-post" action="{{ route('post.store') }}" class="max-w-xl mx-auto my-4 p-4 bg-slate-50 rounded-lg shadow-sm" method="POST" enctype="multipart/form-data">
             @csrf
             <x-input-image />
+            <span class="text-xs text-stone-700">La imágen no debe tener un peso superior a 2 Mb</span>
             <x-input-error :messages="$errors->get('image')" class="mt-2" />
             <x-text-input id="url" class="w-full hidden" type="text" name="url" />
             @if ($action == 'give-up-for-adoption')
@@ -46,6 +47,7 @@
                 <x-input-error :messages="$errors->get('placeAdopt')" class="mt-2" />
             @endif
             <x-input-text-area />
+            <span class="text-xs text-stone-700">La descripción debe contener al menos 50 carácteres</span>
             <x-input-error :messages="$errors->get('description')" class="mt-2" />
             <div class="mx-auto mt-4 w-full flex justify-evenly">
                 <x-primary-button class="bg-red-700">

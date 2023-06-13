@@ -32,10 +32,10 @@ class StoreReport extends FormRequest
     {
         $messages = [
             'image.image' => 'Solo se permiten imagenes',
-            'image.max' => 'La imagen que deseas subir es demasiado grande',
-            'reason.min' => 'Por favor se mas preciso',
-            'reason.max' => 'Por favor se mas breve',
-            'description.min' => 'Por favor se mas especifico o agrega mas descripcion para ayudarte de la mejor manera posible'
+            'image.max' => 'La imágen que deseas subir es demasiado grande',
+            'reason.min' => 'Por favor se más preciso',
+            'reason.max' => 'Por favor se más breve',
+            'description.min' => 'Por favor se más específico o agrega mas descripción para ayudarte de la mejor manera posible'
         ];
         return $messages;
     }

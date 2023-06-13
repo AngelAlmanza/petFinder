@@ -57,14 +57,14 @@ class StorePost extends FormRequest
 
         if ($this->input('title'))
         {
-            $attributes['title'] = 'titulo';
+            $attributes['title'] = 'título';
             $attributes['placeAdopt'] = 'lugar de adopción';
         }
 
         if ($this->input('animal'))
         {
             $attributes['petName'] = 'nombre de la mascota';
-            $attributes['placeLost'] = 'lugar donde se perdio';
+            $attributes['placeLost'] = 'lugar donde se perdió';
         }
 
         if ($this->input('name'))
@@ -78,9 +78,9 @@ class StorePost extends FormRequest
     public function messages()
     {
         $messages = [
-            'description.min' => 'Por favor se mas especifico o agrega mas descripcion para ayudarte de la mejor manera posible',
+            'description.min' => 'Por favor se más específico o agrega mas descripción para ayudarte de la mejor manera posible',
             'image.required' => 'Por favor sube una imágen de la mascota',
-            'image.max' => 'La imagen que deseas subir es demasiado grande'
+            'image.max' => 'La imágen que deseas subir es demasiado grande'
         ];
         return $messages;
     }
